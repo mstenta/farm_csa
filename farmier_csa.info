@@ -28,5 +28,6 @@ features[user_permission][] = edit any commerce_product entity of bundle farmier
 features[user_permission][] = edit own commerce_product entities of bundle farmier_csa_subscription
 features[user_permission][] = view any commerce_product entity of bundle farmier_csa_subscription
 features[user_permission][] = view own commerce_product entities of bundle farmier_csa_subscription
+features[user_role][] = csa
 features[variable][] = date_format_farmier_csa_date
 features[variable][] = field_bundle_settings_commerce_product__farmier_csa_subscription
