@@ -29,3 +29,13 @@ function farmier_csa_ctools_plugin_api() {
     return array("version" => "1");
   }
 }
+
+/**
+ * Implements hook_field_default_fields_alter().
+ */
+function farmier_csa_field_default_fields_alter(&$data) {
+  if (isset($data['node-page-field_products'])) {
+    $data['node-page-field_products']['field_instance']['settings']['referenceable_types']['commerce_sp_subscription'] = 0; /* WAS: '' */
+    $data['node-page-field_products']['field_instance']['settings']['referenceable_types']['farmier_csa_subscription'] = 'farmier_csa_subscription'; /* WAS: '' */
+  }
+}
