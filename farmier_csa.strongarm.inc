@@ -69,6 +69,34 @@ function farmier_csa_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'commerce_pickup_location_entity';
+  $strongarm->value = 'node__farmier_csa_pickup';
+  $export['commerce_pickup_location_entity'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'commerce_pickup_location_list_description';
+  $strongarm->value = '';
+  $export['commerce_pickup_location_list_description'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'commerce_pickup_location_list_element';
+  $strongarm->value = 'radios';
+  $export['commerce_pickup_location_list_element'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'commerce_pickup_service_display_title';
+  $strongarm->value = 'Pickup';
+  $export['commerce_pickup_service_display_title'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'date_format_farmier_csa_date';
   $strongarm->value = 'M jS, Y';
   $export['date_format_farmier_csa_date'] = $strongarm;
