@@ -20,6 +20,36 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
+  // Exported permission: create farmier_csa_pickup content.
+  $permissions['create farmier_csa_pickup content'] = array(
+    'name' => 'create farmier_csa_pickup content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any farmier_csa_pickup content.
+  $permissions['delete any farmier_csa_pickup content'] = array(
+    'name' => 'delete any farmier_csa_pickup content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own farmier_csa_pickup content.
+  $permissions['delete own farmier_csa_pickup content'] = array(
+    'name' => 'delete own farmier_csa_pickup content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: edit any commerce_product entity of bundle farmier_csa_subscription.
   $permissions['edit any commerce_product entity of bundle farmier_csa_subscription'] = array(
     'name' => 'edit any commerce_product entity of bundle farmier_csa_subscription',
@@ -30,6 +60,16 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
+  // Exported permission: edit any farmier_csa_pickup content.
+  $permissions['edit any farmier_csa_pickup content'] = array(
+    'name' => 'edit any farmier_csa_pickup content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: edit own commerce_product entities of bundle farmier_csa_subscription.
   $permissions['edit own commerce_product entities of bundle farmier_csa_subscription'] = array(
     'name' => 'edit own commerce_product entities of bundle farmier_csa_subscription',
@@ -38,6 +78,16 @@ function farmier_csa_user_default_permissions() {
       1 => 'editor',
     ),
     'module' => 'commerce_product',
+  );
+
+  // Exported permission: edit own farmier_csa_pickup content.
+  $permissions['edit own farmier_csa_pickup content'] = array(
+    'name' => 'edit own farmier_csa_pickup content',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: view any commerce_product entity of bundle farmier_csa_subscription.

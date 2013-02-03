@@ -39,3 +39,20 @@ function farmier_csa_field_default_fields_alter(&$data) {
     $data['node-page-field_products']['field_instance']['settings']['referenceable_types']['farmier_csa_subscription'] = 'farmier_csa_subscription'; /* WAS: '' */
   }
 }
+
+/**
+ * Implements hook_node_info().
+ */
+function farmier_csa_node_info() {
+  $items = array(
+    'farmier_csa_pickup' => array(
+      'name' => t('CSA Pickup Location'),
+      'base' => 'node_content',
+      'description' => t('Use <em>CSA Pickup Locations</em> to create new locations where customers can pick up their shares.'),
+      'has_title' => '1',
+      'title_label' => t('Name'),
+      'help' => '',
+    ),
+  );
+  return $items;
+}
