@@ -29,7 +29,6 @@ features[field][] = commerce_product-farmier_csa_subscription-commerce_price
 features[field][] = commerce_product-farmier_csa_subscription-commerce_stock
 features[field][] = commerce_product-farmier_csa_subscription-commerce_stock_override
 features[field][] = commerce_product-farmier_csa_subscription-field_farmier_csa_date_range
-features[field][] = commerce_product-farmier_csa_subscription-field_product_categories
 features[field][] = node-farmier_csa_pickup-body
 features[field][] = node-farmier_csa_pickup-field_farmier_csa_pickup_address
 features[field][] = node-farmier_csa_pickup-field_farmier_geofield
