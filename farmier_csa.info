@@ -24,7 +24,6 @@ features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[features_override_items][] = field.node-page-field_products
 features[features_overrides][] = field.node-page-field_products.field_instance|settings|referenceable_types|farmier_csa_subscription
-features[field][] = comment-comment_node_farmier_csa_pickup-comment_body
 features[field][] = commerce_product-farmier_csa_subscription-commerce_price
 features[field][] = commerce_product-farmier_csa_subscription-commerce_stock
 features[field][] = commerce_product-farmier_csa_subscription-commerce_stock_override

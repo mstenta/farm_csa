@@ -10,68 +10,6 @@
 function farmier_csa_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'comment-comment_node_farmier_csa_pickup-comment_body'.
-  $fields['comment-comment_node_farmier_csa_pickup-comment_body'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(
-        0 => 'comment',
-      ),
-      'field_name' => 'comment_body',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'comment_node_farmier_csa_pickup',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'hidden',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'comment',
-      'field_name' => 'comment_body',
-      'label' => 'Comment',
-      'required' => TRUE,
-      'settings' => array(
-        'text_processing' => 1,
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'text',
-        'settings' => array(
-          'rows' => 5,
-        ),
-        'type' => 'text_textarea',
-        'weight' => 0,
-      ),
-    ),
-  );
-
   // Exported field: 'commerce_product-farmier_csa_subscription-commerce_price'.
   $fields['commerce_product-farmier_csa_subscription-commerce_price'] = array(
     'field_config' => array(
@@ -716,7 +654,6 @@ function farmier_csa_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
-  t('Comment');
   t('Date range');
   t('Description');
   t('Disable stock for this product');
