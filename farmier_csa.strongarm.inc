@@ -104,13 +104,13 @@ function farmier_csa_strongarm() {
           'weight' => '1',
         ),
         'status' => array(
-          'weight' => '7',
+          'weight' => '6',
         ),
         'metatags' => array(
-          'weight' => '8',
+          'weight' => '7',
         ),
         'redirect' => array(
-          'weight' => '9',
+          'weight' => '8',
         ),
       ),
       'display' => array(

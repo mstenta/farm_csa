@@ -170,7 +170,7 @@ function farmier_csa_field_default_fields() {
           'currency_code' => 'default',
         ),
         'type' => 'commerce_price_full',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
@@ -243,7 +243,7 @@ function farmier_csa_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -319,7 +319,7 @@ function farmier_csa_field_default_fields() {
           'display_label' => TRUE,
         ),
         'type' => 'options_onoff',
-        'weight' => '6',
+        'weight' => '5',
       ),
     ),
   );
@@ -352,7 +352,7 @@ function farmier_csa_field_default_fields() {
         'tz_handling' => 'none',
       ),
       'translatable' => '0',
-      'type' => 'datetime',
+      'type' => 'datestamp',
     ),
     'field_instance' => array(
       'bundle' => 'farmier_csa_subscription',
@@ -370,20 +370,13 @@ function farmier_csa_field_default_fields() {
             'multiple_to' => '',
           ),
           'type' => 'date_default',
-          'weight' => '3',
+          'weight' => 6,
         ),
         'line_item' => array(
           'label' => 'above',
-          'module' => 'date',
-          'settings' => array(
-            'format_type' => 'short',
-            'fromto' => 'both',
-            'multiple_from' => '',
-            'multiple_number' => '',
-            'multiple_to' => '',
-          ),
-          'type' => 'date_default',
-          'weight' => '3',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
         'node_teaser' => array(
           'label' => 'above',
@@ -415,7 +408,7 @@ function farmier_csa_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
