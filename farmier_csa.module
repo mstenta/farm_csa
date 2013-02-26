@@ -1,7 +1,27 @@
 <?php
 /**
  * @file
- * Code for the Farmier CSA feature.
+ * Code for the Farmier CSA module.
  */
 
 include_once 'farmier_csa.features.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function farmier_csa_menu() {
+  $items = array();
+
+  // Top level "CSA" container.
+  $items['admin/csa'] = array(
+    'title' => 'CSA',
+    'description' => 'Administer your CSA.',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file path' => drupal_get_path('module', 'system'),
+    'file' => 'system.admin.inc',
+    'weight' => -10,
+  );
+
+  return $items;
+}
