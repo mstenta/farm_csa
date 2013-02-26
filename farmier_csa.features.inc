@@ -31,6 +31,13 @@ function farmier_csa_ctools_plugin_api() {
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function farmier_csa_views_api() {
+  return array("version" => "3.0");
+}
+
+/**
  * Implements hook_field_default_fields_alter().
  */
 function farmier_csa_field_default_fields_alter(&$data) {
