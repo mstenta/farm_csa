@@ -10,6 +10,16 @@
 function farmier_csa_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: assign CSA Member role.
+  $permissions['assign CSA Member role'] = array(
+    'name' => 'assign CSA Member role',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'role_delegation',
+  );
+
   // Exported permission: create commerce_product entities of bundle farmier_csa_subscription.
   $permissions['create commerce_product entities of bundle farmier_csa_subscription'] = array(
     'name' => 'create commerce_product entities of bundle farmier_csa_subscription',
