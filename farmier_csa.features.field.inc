@@ -652,6 +652,9 @@ function farmier_csa_field_default_fields() {
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_csa_member_end_date',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
