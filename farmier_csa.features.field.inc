@@ -727,8 +727,8 @@ function farmier_csa_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Address');
-  t('Date range');
   t('CSA Member End Date');
+  t('Date range');
   t('Description');
   t('Disable stock for this product');
   t('Map');
