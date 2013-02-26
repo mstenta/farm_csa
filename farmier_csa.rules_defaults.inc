@@ -129,7 +129,8 @@ function farmier_csa_default_rules_configuration() {
             "account" : [ "farmier-csa-user" ],
             "roles" : { "value" : { "5" : "5" } }
           }
-        }
+        },
+        { "data_set" : { "data" : [ "farmier-csa-user:field-csa-member-end-date" ] } }
       ]
     }
   }');
