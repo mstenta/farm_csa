@@ -133,5 +133,64 @@ function farmier_csa_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_farmier_csa_update_member_end_date'] = entity_import('rules_config', '{ "rules_farmier_csa_update_member_end_date" : {
+      "LABEL" : "Farmier CSA Update Member",
+      "PLUGIN" : "reaction rule",
+      "TAGS" : [ "farmier_csa" ],
+      "REQUIRES" : [ "rules" ],
+      "ON" : [ "user_update" ],
+      "IF" : [
+        { "entity_has_field" : { "entity" : [ "account" ], "field" : "field_csa_member_end_date" } },
+        { "NOT data_is" : {
+            "data" : [ "account-unchanged:field-csa-member-end-date" ],
+            "value" : [ "account:field-csa-member-end-date" ]
+          }
+        }
+      ],
+      "DO" : [
+        { "component_rules_farmier_csa_update_reschedule_end_date" : { "farmier_csa_user" : [ "account" ] } }
+      ]
+    }
+  }');
+  $items['rules_farmier_csa_update_reschedule_end_date'] = entity_import('rules_config', '{ "rules_farmier_csa_update_reschedule_end_date" : {
+      "LABEL" : "Farmier CSA Reschedule End Date",
+      "PLUGIN" : "rule set",
+      "TAGS" : [ "farmier_csa" ],
+      "REQUIRES" : [ "rules", "rules_scheduler" ],
+      "USES VARIABLES" : { "farmier_csa_user" : { "label" : "Farmier CSA User", "type" : "user" } },
+      "RULES" : [
+        { "RULE" : {
+            "IF" : [
+              { "NOT data_is_empty" : { "data" : [ "farmier-csa-user:field-csa-member-end-date" ] } }
+            ],
+            "DO" : [
+              { "schedule" : {
+                  "component" : "rules_farmier_csa_remove_role",
+                  "date" : [ "farmier-csa-user:field-csa-member-end-date" ],
+                  "identifier" : "farmier_csa_end_membership_[farmier-csa-user:uid]",
+                  "param_farmier_csa_user" : [ "farmier-csa-user" ]
+                }
+              }
+            ],
+            "LABEL" : "farmier_csa_reschedule_end_date"
+          }
+        },
+        { "RULE" : {
+            "IF" : [
+              { "data_is_empty" : { "data" : [ "farmier-csa-user:field-csa-member-end-date" ] } }
+            ],
+            "DO" : [
+              { "schedule_delete" : {
+                  "component" : "rules_farmier_csa_remove_role",
+                  "task" : "farmier_csa_end_membership_[farmier-csa-user:uid]"
+                }
+              }
+            ],
+            "LABEL" : "farmier_csa_unschedule_end_date"
+          }
+        }
+      ]
+    }
+  }');
   return $items;
 }
