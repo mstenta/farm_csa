@@ -39,6 +39,7 @@ features[rules_config][] = rules_farmier_csa_line_item_membership
 features[rules_config][] = rules_farmier_csa_payment
 features[rules_config][] = rules_farmier_csa_remove_role
 features[rules_config][] = rules_farmier_csa_update_member_end_date
+features[rules_config][] = rules_farmier_csa_update_product
 features[rules_config][] = rules_farmier_csa_update_reschedule_end_date
 features[user_permission][] = create commerce_product entities of bundle farmier_csa_subscription
 features[user_permission][] = create farmier_csa_pickup content

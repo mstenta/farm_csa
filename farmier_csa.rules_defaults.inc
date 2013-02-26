@@ -152,6 +152,51 @@ function farmier_csa_default_rules_configuration() {
       ]
     }
   }');
+  $items['rules_farmier_csa_update_product'] = entity_import('rules_config', '{ "rules_farmier_csa_update_product" : {
+      "LABEL" : "Farmier CSA Update Product",
+      "PLUGIN" : "reaction rule",
+      "TAGS" : [ "farmier_csa" ],
+      "REQUIRES" : [ "rules", "entity" ],
+      "ON" : [ "commerce_product_update" ],
+      "IF" : [
+        { "entity_has_field" : {
+            "entity" : [ "commerce-product" ],
+            "field" : "field_farmier_csa_date_range"
+          }
+        },
+        { "NOT data_is" : {
+            "data" : [ "commerce-product-unchanged:field-farmier-csa-date-range:value2" ],
+            "value" : [ "commerce-product:field-farmier-csa-date-range:value2" ]
+          }
+        }
+      ],
+      "DO" : [
+        { "entity_query" : {
+            "USING" : {
+              "type" : "commerce_line_item",
+              "property" : "commerce_product",
+              "value" : [ "commerce-product:product-id" ],
+              "limit" : "1000"
+            },
+            "PROVIDE" : { "entity_fetched" : { "entity_fetched" : "Fetched entity" } }
+          }
+        },
+        { "LOOP" : {
+            "USING" : { "list" : [ "entity-fetched" ] },
+            "ITEM" : { "list_item" : "Current list item" },
+            "DO" : [
+              { "data_set" : {
+                  "data" : [ "list-item:order:owner:field-csa-member-end-date" ],
+                  "value" : [ "commerce-product:field-farmier-csa-date-range:value2" ]
+                }
+              },
+              { "component_rules_farmier_csa_update_reschedule_end_date" : { "farmier_csa_user" : [ "list-item:order:owner" ] } }
+            ]
+          }
+        }
+      ]
+    }
+  }');
   $items['rules_farmier_csa_update_reschedule_end_date'] = entity_import('rules_config', '{ "rules_farmier_csa_update_reschedule_end_date" : {
       "LABEL" : "Farmier CSA Reschedule End Date",
       "PLUGIN" : "rule set",
