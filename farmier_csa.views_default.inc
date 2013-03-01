@@ -38,11 +38,11 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'order_id' => 'order_id',
     'created' => 'created',
+    'order_id' => 'order_id',
+    'commerce_customer_address' => 'commerce_customer_address',
     'name' => 'name',
     'mail' => 'mail',
-    'commerce_customer_billing' => 'commerce_customer_billing',
     'title' => 'title',
     'commerce_total' => 'commerce_total',
     'balance' => 'balance',
@@ -50,9 +50,17 @@ function farmier_csa_views_default_views() {
     'rid' => 'rid',
     'field_csa_member_end_date' => 'field_csa_member_end_date',
     'activated' => 'activated',
+    'line_item_label' => 'line_item_label',
   );
   $handler->display->display_options['style_options']['default'] = 'created';
   $handler->display->display_options['style_options']['info'] = array(
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'order_id' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
@@ -60,9 +68,9 @@ function farmier_csa_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'created' => array(
+    'commerce_customer_address' => array(
       'sortable' => 1,
-      'default_sort_order' => 'desc',
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -75,13 +83,6 @@ function farmier_csa_views_default_views() {
       'empty_column' => 0,
     ),
     'mail' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'commerce_customer_billing' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -133,6 +134,13 @@ function farmier_csa_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'line_item_label' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   $handler->display->display_options['style_options']['sticky'] = TRUE;
   /* Relationship: Commerce Line Item: Order ID */
@@ -148,12 +156,17 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['relationships']['commerce_product_product_id']['id'] = 'commerce_product_product_id';
   $handler->display->display_options['relationships']['commerce_product_product_id']['table'] = 'field_data_commerce_product';
   $handler->display->display_options['relationships']['commerce_product_product_id']['field'] = 'commerce_product_product_id';
-  /* Field: Commerce Order: Order ID */
-  $handler->display->display_options['fields']['order_id']['id'] = 'order_id';
-  $handler->display->display_options['fields']['order_id']['table'] = 'commerce_order';
-  $handler->display->display_options['fields']['order_id']['field'] = 'order_id';
-  $handler->display->display_options['fields']['order_id']['relationship'] = 'order_id';
-  $handler->display->display_options['fields']['order_id']['link_to_order'] = 'admin';
+  /* Relationship: Commerce Order: Referenced line item */
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['field'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['relationship'] = 'order_id';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['label'] = 'Order line Item';
+  /* Relationship: Commerce Order: Referenced customer profile */
+  $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['id'] = 'commerce_customer_billing_profile_id';
+  $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['table'] = 'field_data_commerce_customer_billing';
+  $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['field'] = 'commerce_customer_billing_profile_id';
+  $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['relationship'] = 'order_id';
   /* Field: Commerce Order: Created date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'commerce_order';
@@ -161,11 +174,24 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['created']['relationship'] = 'order_id';
   $handler->display->display_options['fields']['created']['label'] = 'Order date';
   $handler->display->display_options['fields']['created']['date_format'] = 'short';
-  /* Field: Commerce Order: Billing information */
-  $handler->display->display_options['fields']['commerce_customer_billing']['id'] = 'commerce_customer_billing';
-  $handler->display->display_options['fields']['commerce_customer_billing']['table'] = 'field_data_commerce_customer_billing';
-  $handler->display->display_options['fields']['commerce_customer_billing']['field'] = 'commerce_customer_billing';
-  $handler->display->display_options['fields']['commerce_customer_billing']['relationship'] = 'order_id';
+  /* Field: Commerce Order: Order ID */
+  $handler->display->display_options['fields']['order_id']['id'] = 'order_id';
+  $handler->display->display_options['fields']['order_id']['table'] = 'commerce_order';
+  $handler->display->display_options['fields']['order_id']['field'] = 'order_id';
+  $handler->display->display_options['fields']['order_id']['relationship'] = 'order_id';
+  $handler->display->display_options['fields']['order_id']['link_to_order'] = 'admin';
+  /* Field: Commerce Customer profile: Address */
+  $handler->display->display_options['fields']['commerce_customer_address']['id'] = 'commerce_customer_address';
+  $handler->display->display_options['fields']['commerce_customer_address']['table'] = 'field_data_commerce_customer_address';
+  $handler->display->display_options['fields']['commerce_customer_address']['field'] = 'commerce_customer_address';
+  $handler->display->display_options['fields']['commerce_customer_address']['relationship'] = 'commerce_customer_billing_profile_id';
+  $handler->display->display_options['fields']['commerce_customer_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['commerce_customer_address']['settings'] = array(
+    'use_widget_handlers' => 0,
+    'format_handlers' => array(
+      'name-oneline' => 'name-oneline',
+    ),
+  );
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -232,6 +258,12 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['activated']['relationship'] = 'uid';
   $handler->display->display_options['fields']['activated']['label'] = 'Newsletter';
   $handler->display->display_options['fields']['activated']['not'] = 0;
+  /* Field: Commerce Line Item: Label */
+  $handler->display->display_options['fields']['line_item_label']['id'] = 'line_item_label';
+  $handler->display->display_options['fields']['line_item_label']['table'] = 'commerce_line_item';
+  $handler->display->display_options['fields']['line_item_label']['field'] = 'line_item_label';
+  $handler->display->display_options['fields']['line_item_label']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['fields']['line_item_label']['label'] = 'Pickup location';
   /* Filter criterion: Commerce Line Item: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'commerce_line_item';
@@ -239,6 +271,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'product' => 'product',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: Commerce Product: Type */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'commerce_product';
@@ -247,18 +280,31 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['type_1']['value'] = array(
     'farmier_csa_subscription' => 'farmier_csa_subscription',
   );
-  /* Filter criterion: User: E-mail */
-  $handler->display->display_options['filters']['mail']['id'] = 'mail';
-  $handler->display->display_options['filters']['mail']['table'] = 'users';
-  $handler->display->display_options['filters']['mail']['field'] = 'mail';
-  $handler->display->display_options['filters']['mail']['relationship'] = 'uid';
-  $handler->display->display_options['filters']['mail']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['mail']['expose']['operator_id'] = 'mail_op';
-  $handler->display->display_options['filters']['mail']['expose']['label'] = 'E-mail';
-  $handler->display->display_options['filters']['mail']['expose']['use_operator'] = TRUE;
-  $handler->display->display_options['filters']['mail']['expose']['operator'] = 'mail_op';
-  $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
-  $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['type_1']['group'] = 1;
+  /* Filter criterion: Commerce Line Item: Type */
+  $handler->display->display_options['filters']['type_2']['id'] = 'type_2';
+  $handler->display->display_options['filters']['type_2']['table'] = 'commerce_line_item';
+  $handler->display->display_options['filters']['type_2']['field'] = 'type';
+  $handler->display->display_options['filters']['type_2']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['filters']['type_2']['value'] = array(
+    'shipping' => 'shipping',
+  );
+  $handler->display->display_options['filters']['type_2']['group'] = 1;
+  /* Filter criterion: Commerce Customer profile: Address (commerce_customer_address:name_line) */
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['id'] = 'commerce_customer_address_name_line';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['table'] = 'field_data_commerce_customer_address';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['field'] = 'commerce_customer_address_name_line';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['relationship'] = 'commerce_customer_billing_profile_id';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['operator'] = 'contains';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['group'] = 1;
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['operator_id'] = 'commerce_customer_address_name_line_op';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['label'] = 'Name';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['description'] = 'Enter a name.';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['use_operator'] = TRUE;
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['operator'] = 'commerce_customer_address_name_line_op';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['identifier'] = 'commerce_customer_address_name_line';
+  $handler->display->display_options['filters']['commerce_customer_address_name_line']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -271,13 +317,55 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['uid']['field'] = 'uid';
   $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
   $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
   $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
-  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Name';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Username';
   $handler->display->display_options['filters']['uid']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
   $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
   $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  /* Filter criterion: User: E-mail */
+  $handler->display->display_options['filters']['mail']['id'] = 'mail';
+  $handler->display->display_options['filters']['mail']['table'] = 'users';
+  $handler->display->display_options['filters']['mail']['field'] = 'mail';
+  $handler->display->display_options['filters']['mail']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['mail']['group'] = 1;
+  $handler->display->display_options['filters']['mail']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['mail']['expose']['operator_id'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['label'] = 'E-mail';
+  $handler->display->display_options['filters']['mail']['expose']['description'] = 'Enter an email address.';
+  $handler->display->display_options['filters']['mail']['expose']['use_operator'] = TRUE;
+  $handler->display->display_options['filters']['mail']['expose']['operator'] = 'mail_op';
+  $handler->display->display_options['filters']['mail']['expose']['identifier'] = 'mail';
+  $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  /* Filter criterion: Commerce Product: Created date */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'commerce_product';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['filters']['created']['operator'] = 'between';
+  $handler->display->display_options['filters']['created']['group'] = 1;
+  $handler->display->display_options['filters']['created']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
+  $handler->display->display_options['filters']['created']['expose']['label'] = 'Order date';
+  $handler->display->display_options['filters']['created']['expose']['description'] = 'Enter creation date(s).';
+  $handler->display->display_options['filters']['created']['expose']['use_operator'] = TRUE;
+  $handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
+  $handler->display->display_options['filters']['created']['expose']['identifier'] = 'created';
+  $handler->display->display_options['filters']['created']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -289,9 +377,11 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['status']['table'] = 'commerce_order';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['relationship'] = 'order_id';
+  $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['exposed'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['operator_id'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['label'] = 'Order status';
+  $handler->display->display_options['filters']['status']['expose']['description'] = 'Select one or more order statuses.';
   $handler->display->display_options['filters']['status']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
@@ -311,9 +401,11 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['rid']['value'] = array(
     5 => '5',
   );
+  $handler->display->display_options['filters']['rid']['group'] = 1;
   $handler->display->display_options['filters']['rid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['rid']['expose']['operator_id'] = 'rid_op';
   $handler->display->display_options['filters']['rid']['expose']['label'] = 'Membership';
+  $handler->display->display_options['filters']['rid']['expose']['description'] = 'Filter by CSA Member role.';
   $handler->display->display_options['filters']['rid']['expose']['operator'] = 'rid_op';
   $handler->display->display_options['filters']['rid']['expose']['identifier'] = 'rid';
   $handler->display->display_options['filters']['rid']['expose']['remember_roles'] = array(
@@ -368,21 +460,14 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'changed' => 'changed',
     'title' => 'title',
     'field_farmier_csa_pickup_address' => 'field_farmier_csa_pickup_address',
     'status' => 'status',
     'edit_node' => 'edit_node',
+    'created' => 'created',
   );
-  $handler->display->display_options['style_options']['default'] = 'changed';
+  $handler->display->display_options['style_options']['default'] = 'created';
   $handler->display->display_options['style_options']['info'] = array(
-    'changed' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'desc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
     'title' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
@@ -409,13 +494,21 @@ function farmier_csa_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'created' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   $handler->display->display_options['style_options']['sticky'] = TRUE;
-  /* Field: Content: Updated date */
-  $handler->display->display_options['fields']['changed']['id'] = 'changed';
-  $handler->display->display_options['fields']['changed']['table'] = 'node';
-  $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['date_format'] = 'short';
+  /* Field: Content: Post date */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'node';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['label'] = 'Created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -440,13 +533,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['label'] = 'Operations';
   /* Filter criterion: Content: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
@@ -466,6 +553,25 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  /* Filter criterion: Content: Post date */
+  $handler->display->display_options['filters']['created']['id'] = 'created';
+  $handler->display->display_options['filters']['created']['table'] = 'node';
+  $handler->display->display_options['filters']['created']['field'] = 'created';
+  $handler->display->display_options['filters']['created']['operator'] = 'between';
+  $handler->display->display_options['filters']['created']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['created']['expose']['operator_id'] = 'created_op';
+  $handler->display->display_options['filters']['created']['expose']['label'] = 'Created';
+  $handler->display->display_options['filters']['created']['expose']['description'] = 'Enter creation date(s).';
+  $handler->display->display_options['filters']['created']['expose']['use_operator'] = TRUE;
+  $handler->display->display_options['filters']['created']['expose']['operator'] = 'created_op';
+  $handler->display->display_options['filters']['created']['expose']['identifier'] = 'created';
+  $handler->display->display_options['filters']['created']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
