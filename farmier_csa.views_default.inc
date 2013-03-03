@@ -37,6 +37,13 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_farmier_csa_season',
+      'rendered' => 1,
+      'rendered_strip' => 0,
+    ),
+  );
   $handler->display->display_options['style_options']['columns'] = array(
     'created' => 'created',
     'order_id' => 'order_id',
@@ -44,6 +51,7 @@ function farmier_csa_views_default_views() {
     'name' => 'name',
     'mail' => 'mail',
     'title' => 'title',
+    'field_farmier_csa_season' => 'field_farmier_csa_season',
     'commerce_total' => 'commerce_total',
     'balance' => 'balance',
     'status' => 'status',
@@ -90,6 +98,13 @@ function farmier_csa_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_farmier_csa_season' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -211,6 +226,11 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'commerce_product_product_id';
   $handler->display->display_options['fields']['title']['label'] = 'Subscription product';
   $handler->display->display_options['fields']['title']['link_to_product'] = 1;
+  /* Field: Commerce Product: Season */
+  $handler->display->display_options['fields']['field_farmier_csa_season']['id'] = 'field_farmier_csa_season';
+  $handler->display->display_options['fields']['field_farmier_csa_season']['table'] = 'field_data_field_farmier_csa_season';
+  $handler->display->display_options['fields']['field_farmier_csa_season']['field'] = 'field_farmier_csa_season';
+  $handler->display->display_options['fields']['field_farmier_csa_season']['relationship'] = 'commerce_product_product_id';
   /* Field: Commerce Line item: Total */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
@@ -393,6 +413,31 @@ function farmier_csa_views_default_views() {
     4 => 0,
     5 => 0,
   );
+  /* Filter criterion: Commerce Product: Season (field_farmier_csa_season) */
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['id'] = 'field_farmier_csa_season_tid';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['table'] = 'field_data_field_farmier_csa_season';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['field'] = 'field_farmier_csa_season_tid';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['group'] = 1;
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['operator_id'] = 'field_farmier_csa_season_tid_op';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['label'] = 'Season';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['description'] = 'Select a season.';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['use_operator'] = TRUE;
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['operator'] = 'field_farmier_csa_season_tid_op';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['identifier'] = 'field_farmier_csa_season_tid';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['multiple'] = TRUE;
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+  );
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['vocabulary'] = 'csa_season';
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['hierarchy'] = 1;
+  $handler->display->display_options['filters']['field_farmier_csa_season_tid']['error_message'] = FALSE;
   /* Filter criterion: User: Roles */
   $handler->display->display_options['filters']['rid']['id'] = 'rid';
   $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
