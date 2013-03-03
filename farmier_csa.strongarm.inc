@@ -94,6 +94,24 @@ function farmier_csa_strongarm() {
       'node_token' => array(
         'custom_settings' => FALSE,
       ),
+      'node_email_plain' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_email_html' => array(
+        'custom_settings' => FALSE,
+      ),
+      'node_email_textalt' => array(
+        'custom_settings' => FALSE,
+      ),
+      'taxonomy_term_full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'taxonomy_term_diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'taxonomy_term_token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -104,13 +122,13 @@ function farmier_csa_strongarm() {
           'weight' => '1',
         ),
         'status' => array(
-          'weight' => '6',
-        ),
-        'metatags' => array(
           'weight' => '7',
         ),
-        'redirect' => array(
+        'metatags' => array(
           'weight' => '8',
+        ),
+        'redirect' => array(
+          'weight' => '9',
         ),
       ),
       'display' => array(
@@ -140,7 +158,7 @@ function farmier_csa_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => TRUE,
           ),
         ),

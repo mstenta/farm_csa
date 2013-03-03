@@ -70,6 +70,16 @@ function farmier_csa_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: delete terms in csa_season.
+  $permissions['delete terms in csa_season'] = array(
+    'name' => 'delete terms in csa_season',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: edit any commerce_product entity of bundle farmier_csa_subscription.
   $permissions['edit any commerce_product entity of bundle farmier_csa_subscription'] = array(
     'name' => 'edit any commerce_product entity of bundle farmier_csa_subscription',
@@ -128,6 +138,16 @@ function farmier_csa_user_default_permissions() {
       1 => 'editor',
     ),
     'module' => 'field_permissions',
+  );
+
+  // Exported permission: edit terms in csa_season.
+  $permissions['edit terms in csa_season'] = array(
+    'name' => 'edit terms in csa_season',
+    'roles' => array(
+      0 => 'administrator',
+      1 => 'editor',
+    ),
+    'module' => 'taxonomy',
   );
 
   // Exported permission: view any commerce_product entity of bundle farmier_csa_subscription.
