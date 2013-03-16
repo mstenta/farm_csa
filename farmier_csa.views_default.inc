@@ -1183,16 +1183,31 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   /* Field: Content: Address */
-  $handler->display->display_options['fields']['field_farmier_csa_pickup_address']['id'] = 'field_farmier_csa_pickup_address';
-  $handler->display->display_options['fields']['field_farmier_csa_pickup_address']['table'] = 'field_data_field_farmier_csa_pickup_address';
-  $handler->display->display_options['fields']['field_farmier_csa_pickup_address']['field'] = 'field_farmier_csa_pickup_address';
-  $handler->display->display_options['fields']['field_farmier_csa_pickup_address']['click_sort_column'] = 'country';
-  $handler->display->display_options['fields']['field_farmier_csa_pickup_address']['settings'] = array(
+  $handler->display->display_options['fields']['field_pickup_address']['id'] = 'field_pickup_address';
+  $handler->display->display_options['fields']['field_pickup_address']['table'] = 'field_data_field_pickup_address';
+  $handler->display->display_options['fields']['field_pickup_address']['field'] = 'field_pickup_address';
+  $handler->display->display_options['fields']['field_pickup_address']['click_sort_column'] = 'country';
+  $handler->display->display_options['fields']['field_pickup_address']['settings'] = array(
     'use_widget_handlers' => 1,
     'format_handlers' => array(
       'address' => 'address',
     ),
   );
+  /* Field: Content: Time (phrase) */
+  $handler->display->display_options['fields']['field_pickup_time_phrase']['id'] = 'field_pickup_time_phrase';
+  $handler->display->display_options['fields']['field_pickup_time_phrase']['table'] = 'field_data_field_pickup_time_phrase';
+  $handler->display->display_options['fields']['field_pickup_time_phrase']['field'] = 'field_pickup_time_phrase';
+  $handler->display->display_options['fields']['field_pickup_time_phrase']['label'] = 'Time';
+  /* Field: Content: Pickup Contact */
+  $handler->display->display_options['fields']['field_pickup_contact']['id'] = 'field_pickup_contact';
+  $handler->display->display_options['fields']['field_pickup_contact']['table'] = 'field_data_field_pickup_contact';
+  $handler->display->display_options['fields']['field_pickup_contact']['field'] = 'field_pickup_contact';
+  $handler->display->display_options['fields']['field_pickup_contact']['label'] = 'Contact';
+  /* Field: Content: Phone Number */
+  $handler->display->display_options['fields']['field_pickup_phone']['id'] = 'field_pickup_phone';
+  $handler->display->display_options['fields']['field_pickup_phone']['table'] = 'field_data_field_pickup_phone';
+  $handler->display->display_options['fields']['field_pickup_phone']['field'] = 'field_pickup_phone';
+  $handler->display->display_options['fields']['field_pickup_phone']['label'] = 'Phone';
   /* Field: Content: Published */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
