@@ -30,16 +30,6 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: create pickup content.
-  $permissions['create pickup content'] = array(
-    'name' => 'create pickup content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: create field_csa_member_end_date.
   $permissions['create field_csa_member_end_date'] = array(
     'name' => 'create field_csa_member_end_date',
@@ -48,26 +38,6 @@ function farmier_csa_user_default_permissions() {
       1 => 'anonymous user',
     ),
     'module' => 'field_permissions',
-  );
-
-  // Exported permission: delete any pickup content.
-  $permissions['delete any pickup content'] = array(
-    'name' => 'delete any pickup content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: delete own pickup content.
-  $permissions['delete own pickup content'] = array(
-    'name' => 'delete own pickup content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: delete terms in csa_season.
@@ -90,16 +60,6 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: edit any pickup content.
-  $permissions['edit any pickup content'] = array(
-    'name' => 'edit any pickup content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: edit field_csa_member_end_date.
   $permissions['edit field_csa_member_end_date'] = array(
     'name' => 'edit field_csa_member_end_date',
@@ -118,16 +78,6 @@ function farmier_csa_user_default_permissions() {
       1 => 'editor',
     ),
     'module' => 'commerce_product',
-  );
-
-  // Exported permission: edit own pickup content.
-  $permissions['edit own pickup content'] = array(
-    'name' => 'edit own pickup content',
-    'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
-    ),
-    'module' => 'node',
   );
 
   // Exported permission: edit own field_csa_member_end_date.
