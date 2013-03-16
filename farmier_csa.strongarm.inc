@@ -87,13 +87,13 @@ function farmier_csa_strongarm() {
           'weight' => '1',
         ),
         'status' => array(
-          'weight' => '7',
-        ),
-        'metatags' => array(
           'weight' => '8',
         ),
-        'redirect' => array(
+        'metatags' => array(
           'weight' => '9',
+        ),
+        'redirect' => array(
+          'weight' => '10',
         ),
       ),
       'display' => array(
