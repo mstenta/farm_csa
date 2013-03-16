@@ -52,7 +52,7 @@ function farmier_csa_field_default_fields_alter(&$data) {
  */
 function farmier_csa_node_info() {
   $items = array(
-    'farmier_csa_pickup' => array(
+    'pickup' => array(
       'name' => t('CSA Pickup Location'),
       'base' => 'node_content',
       'description' => t('Use <em>CSA Pickup Locations</em> to create new locations where customers can pick up their shares.'),

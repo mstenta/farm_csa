@@ -503,8 +503,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-body'.
-  $fields['node-farmier_csa_pickup-body'] = array(
+  // Exported field: 'node-pickup-body'.
+  $fields['node-pickup-body'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -536,7 +536,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Use this field to provide more information about the pickup location, including directions, contact information, etc.',
@@ -580,8 +580,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_pickup_address'.
-  $fields['node-farmier_csa_pickup-field_pickup_address'] = array(
+  // Exported field: 'node-pickup-field_pickup_address'.
+  $fields['node-pickup-field_pickup_address'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -600,10 +600,10 @@ function farmier_csa_field_default_fields() {
       'type' => 'addressfield',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'default_value' => array(
         0 => array(
-          'element_key' => 'node|farmier_csa_pickup|field_pickup_address|und|0',
+          'element_key' => 'node|pickup|field_pickup_address|und|0',
           'thoroughfare' => '',
           'premise' => '',
           'locality' => '',
@@ -662,8 +662,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_pickup_contact'.
-  $fields['node-farmier_csa_pickup-field_pickup_contact'] = array(
+  // Exported field: 'node-pickup-field_pickup_contact'.
+  $fields['node-pickup-field_pickup_contact'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -695,7 +695,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Enter the name of a person who will be at this pickup location during the allotted time. This will only be visible to CSA Members and admins.',
@@ -734,8 +734,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_pickup_map'.
-  $fields['node-farmier_csa_pickup-field_pickup_map'] = array(
+  // Exported field: 'node-pickup-field_pickup_map'.
+  $fields['node-pickup-field_pickup_map'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -754,7 +754,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'geofield',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -813,8 +813,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_pickup_phone'.
-  $fields['node-farmier_csa_pickup-field_pickup_phone'] = array(
+  // Exported field: 'node-pickup-field_pickup_phone'.
+  $fields['node-pickup-field_pickup_phone'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -846,7 +846,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Enter the phone number of this pickup location\'s contact person. This will only be visible to CSA Members and admins.',
@@ -885,8 +885,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_pickup_time'.
-  $fields['node-farmier_csa_pickup-field_pickup_time'] = array(
+  // Exported field: 'node-pickup-field_pickup_time'.
+  $fields['node-pickup-field_pickup_time'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -920,7 +920,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'datestamp',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'deleted' => '0',
       'description' => 'Enter the time that deliveries will be available at this pickup location. Start with the first date that deliveries will be made, and then check "Repeat" to describe how often the deliveries will be to this location. This will be used for generating pickup calendars.',
       'display' => array(
@@ -966,8 +966,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_pickup_time_phrase'.
-  $fields['node-farmier_csa_pickup-field_pickup_time_phrase'] = array(
+  // Exported field: 'node-pickup-field_pickup_time_phrase'.
+  $fields['node-pickup-field_pickup_time_phrase'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -999,7 +999,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'text',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_pickup',
+      'bundle' => 'pickup',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => 'Enter a simple phrase to describe this location\'s pickup time, like "Mondays between 1 and 4pm". This will be displayed to visitors, as opposed to the <em>Time (calendar)</em> field above, which is used for generating pickup calendars.',

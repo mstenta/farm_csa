@@ -13,15 +13,15 @@ function farmier_csa_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'additional_settings__active_tab_farmier_csa_pickup';
+  $strongarm->name = 'additional_settings__active_tab_pickup';
   $strongarm->value = 'edit-xmlsitemap';
-  $export['additional_settings__active_tab_farmier_csa_pickup'] = $strongarm;
+  $export['additional_settings__active_tab_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'commerce_pickup_location_entity';
-  $strongarm->value = 'node__farmier_csa_pickup';
+  $strongarm->value = 'node__pickup';
   $export['commerce_pickup_location_entity'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -170,7 +170,7 @@ function farmier_csa_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_node__farmier_csa_pickup';
+  $strongarm->name = 'field_bundle_settings_node__pickup';
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
@@ -219,68 +219,68 @@ function farmier_csa_strongarm() {
       'display' => array(),
     ),
   );
-  $export['field_bundle_settings_node__farmier_csa_pickup'] = $strongarm;
+  $export['field_bundle_settings_node__pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_farmier_csa_pickup';
+  $strongarm->name = 'menu_options_pickup';
   $strongarm->value = array();
-  $export['menu_options_farmier_csa_pickup'] = $strongarm;
+  $export['menu_options_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_farmier_csa_pickup';
+  $strongarm->name = 'menu_parent_pickup';
   $strongarm->value = 'main-menu:0';
-  $export['menu_parent_farmier_csa_pickup'] = $strongarm;
+  $export['menu_parent_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_farmier_csa_pickup';
+  $strongarm->name = 'node_options_pickup';
   $strongarm->value = array(
     0 => 'status',
   );
-  $export['node_options_farmier_csa_pickup'] = $strongarm;
+  $export['node_options_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_farmier_csa_pickup';
+  $strongarm->name = 'node_preview_pickup';
   $strongarm->value = '0';
-  $export['node_preview_farmier_csa_pickup'] = $strongarm;
+  $export['node_preview_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_farmier_csa_pickup';
+  $strongarm->name = 'node_submitted_pickup';
   $strongarm->value = 0;
-  $export['node_submitted_farmier_csa_pickup'] = $strongarm;
+  $export['node_submitted_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'pathauto_node_farmier_csa_pickup_pattern';
+  $strongarm->name = 'pathauto_node_pickup_pattern';
   $strongarm->value = 'csa/pickup/[node:title]';
-  $export['pathauto_node_farmier_csa_pickup_pattern'] = $strongarm;
+  $export['pathauto_node_pickup_pattern'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'save_continue_farmier_csa_pickup';
+  $strongarm->name = 'save_continue_pickup';
   $strongarm->value = 'Save and add fields';
-  $export['save_continue_farmier_csa_pickup'] = $strongarm;
+  $export['save_continue_pickup'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'xmlsitemap_settings_node_farmier_csa_pickup';
+  $strongarm->name = 'xmlsitemap_settings_node_pickup';
   $strongarm->value = array(
     'status' => '1',
     'priority' => '0.5',
   );
-  $export['xmlsitemap_settings_node_farmier_csa_pickup'] = $strongarm;
+  $export['xmlsitemap_settings_node_pickup'] = $strongarm;
 
   return $export;
 }

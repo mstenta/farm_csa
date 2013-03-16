@@ -1102,7 +1102,7 @@ function farmier_csa_views_default_views() {
   $export['farmier_csa_members'] = $view;
 
   $view = new view();
-  $view->name = 'farmier_csa_pickup_locations';
+  $view->name = 'pickup_locations';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
@@ -1130,7 +1130,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'field_farmier_csa_pickup_address' => 'field_farmier_csa_pickup_address',
+    'field_pickup_address' => 'field_pickup_address',
     'status' => 'status',
     'edit_node' => 'edit_node',
     'created' => 'created',
@@ -1144,7 +1144,7 @@ function farmier_csa_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_farmier_csa_pickup_address' => array(
+    'field_pickup_address' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -1223,7 +1223,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'farmier_csa_pickup' => 'farmier_csa_pickup',
+    'pickup' => 'pickup',
   );
   /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
@@ -1282,7 +1282,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
-  $export['farmier_csa_pickup_locations'] = $view;
+  $export['pickup_locations'] = $view;
 
   return $export;
 }
