@@ -59,7 +59,7 @@ function farmier_csa_views_default_views() {
     'rid' => 'rid',
     'field_csa_member_end_date' => 'field_csa_member_end_date',
     'activated' => 'activated',
-    'line_item_label' => 'line_item_label',
+    'title_1' => 'title_1',
   );
   $handler->display->display_options['style_options']['default'] = 'created';
   $handler->display->display_options['style_options']['info'] = array(
@@ -157,7 +157,7 @@ function farmier_csa_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'line_item_label' => array(
+    'title_1' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -190,6 +190,11 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['table'] = 'field_data_commerce_customer_billing';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['field'] = 'commerce_customer_billing_profile_id';
   $handler->display->display_options['relationships']['commerce_customer_billing_profile_id']['relationship'] = 'order_id';
+  /* Relationship: Commerce Pickup: Pickup location */
+  $handler->display->display_options['relationships']['entity_id']['id'] = 'entity_id';
+  $handler->display->display_options['relationships']['entity_id']['table'] = 'commerce_pickup_line_item';
+  $handler->display->display_options['relationships']['entity_id']['field'] = 'entity_id';
+  $handler->display->display_options['relationships']['entity_id']['relationship'] = 'commerce_line_items_line_item_id';
   /* Field: Commerce Order: Created date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'commerce_order';
@@ -293,12 +298,12 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['activated']['relationship'] = 'uid';
   $handler->display->display_options['fields']['activated']['label'] = 'Newsletter';
   $handler->display->display_options['fields']['activated']['not'] = 0;
-  /* Field: Commerce Line Item: Label */
-  $handler->display->display_options['fields']['line_item_label']['id'] = 'line_item_label';
-  $handler->display->display_options['fields']['line_item_label']['table'] = 'commerce_line_item';
-  $handler->display->display_options['fields']['line_item_label']['field'] = 'line_item_label';
-  $handler->display->display_options['fields']['line_item_label']['relationship'] = 'commerce_line_items_line_item_id';
-  $handler->display->display_options['fields']['line_item_label']['label'] = 'Pickup location';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
+  $handler->display->display_options['fields']['title_1']['table'] = 'node';
+  $handler->display->display_options['fields']['title_1']['field'] = 'title';
+  $handler->display->display_options['fields']['title_1']['relationship'] = 'entity_id';
+  $handler->display->display_options['fields']['title_1']['label'] = 'Pickup location';
   /* Filter criterion: Commerce Line Item: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'commerce_line_item';
@@ -884,7 +889,7 @@ function farmier_csa_views_default_views() {
     'balance' => 'balance',
     'status' => 'status',
     'activated' => 'activated',
-    'line_item_label' => 'line_item_label',
+    'label' => 'label',
   );
   $handler->display->display_options['style_options']['default'] = 'created';
   $handler->display->display_options['style_options']['info'] = array(
@@ -970,7 +975,7 @@ function farmier_csa_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'line_item_label' => array(
+    'label' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -1067,12 +1072,11 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['activated']['relationship'] = 'uid';
   $handler->display->display_options['fields']['activated']['label'] = 'Newsletter';
   $handler->display->display_options['fields']['activated']['not'] = 0;
-  /* Field: Commerce Line Item: Label */
-  $handler->display->display_options['fields']['line_item_label']['id'] = 'line_item_label';
-  $handler->display->display_options['fields']['line_item_label']['table'] = 'commerce_line_item';
-  $handler->display->display_options['fields']['line_item_label']['field'] = 'line_item_label';
-  $handler->display->display_options['fields']['line_item_label']['relationship'] = 'commerce_line_items_line_item_id';
-  $handler->display->display_options['fields']['line_item_label']['label'] = 'Pickup location';
+  /* Field: Commerce Pickup: Pickup location label */
+  $handler->display->display_options['fields']['label']['id'] = 'label';
+  $handler->display->display_options['fields']['label']['table'] = 'commerce_pickup_line_item';
+  $handler->display->display_options['fields']['label']['field'] = 'label';
+  $handler->display->display_options['fields']['label']['label'] = 'Pickup location';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Commerce Line Item: Type */
