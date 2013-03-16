@@ -50,6 +50,7 @@ function farmier_csa_views_default_views() {
     'commerce_customer_address' => 'commerce_customer_address',
     'name' => 'name',
     'mail' => 'mail',
+    'field_phone' => 'field_phone',
     'title' => 'title',
     'field_farmier_csa_season' => 'field_farmier_csa_season',
     'commerce_total' => 'commerce_total',
@@ -91,6 +92,13 @@ function farmier_csa_views_default_views() {
       'empty_column' => 0,
     ),
     'mail' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_phone' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -220,6 +228,12 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['relationship'] = 'order_id';
   $handler->display->display_options['fields']['mail']['render_as_link'] = 0;
+  /* Field: Commerce Customer profile: Phone Number */
+  $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
+  $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
+  $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
+  $handler->display->display_options['fields']['field_phone']['relationship'] = 'commerce_customer_billing_profile_id';
+  $handler->display->display_options['fields']['field_phone']['label'] = 'Phone';
   /* Field: Commerce Product: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'commerce_product';
@@ -887,6 +901,12 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['relationship'] = 'order_id';
   $handler->display->display_options['fields']['mail']['render_as_link'] = 0;
+  /* Field: Commerce Customer profile: Phone Number */
+  $handler->display->display_options['fields']['field_phone']['id'] = 'field_phone';
+  $handler->display->display_options['fields']['field_phone']['table'] = 'field_data_field_phone';
+  $handler->display->display_options['fields']['field_phone']['field'] = 'field_phone';
+  $handler->display->display_options['fields']['field_phone']['relationship'] = 'commerce_customer_billing_profile_id';
+  $handler->display->display_options['fields']['field_phone']['label'] = 'Phone';
   /* Field: Commerce Product: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'commerce_product';
