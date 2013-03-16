@@ -350,6 +350,7 @@ function farmier_csa_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
+        'repeat' => 0,
         'timezone_db' => '',
         'todate' => 'required',
         'tz_handling' => 'none',
@@ -371,6 +372,7 @@ function farmier_csa_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
+            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
           'weight' => '3',
@@ -407,6 +409,7 @@ function farmier_csa_field_default_fields() {
           'input_format' => 'M j Y - g:i:sa',
           'input_format_custom' => '',
           'label_position' => 'above',
+          'repeat_collapsed' => 0,
           'text_parts' => array(),
           'year_range' => '-3:+3',
         ),
@@ -543,7 +546,7 @@ function farmier_csa_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -572,19 +575,22 @@ function farmier_csa_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '3',
+        'weight' => '9',
       ),
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_farmier_csa_pickup_address'.
-  $fields['node-farmier_csa_pickup-field_farmier_csa_pickup_address'] = array(
+  // Exported field: 'node-farmier_csa_pickup-field_pickup_address'.
+  $fields['node-farmier_csa_pickup-field_pickup_address'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_farmier_csa_pickup_address',
+      'field_name' => 'field_pickup_address',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -597,19 +603,17 @@ function farmier_csa_field_default_fields() {
       'bundle' => 'farmier_csa_pickup',
       'default_value' => array(
         0 => array(
-          'element_key' => 'node|farmier_csa_pickup|field_farmier_csa_pickup_address|und|0',
+          'element_key' => 'node|farmier_csa_pickup|field_pickup_address|und|0',
           'thoroughfare' => '',
           'premise' => '',
           'locality' => '',
           'administrative_area' => '',
           'postal_code' => '',
           'country' => 'US',
-          'organisation_name' => '',
-          'name_line' => '',
         ),
       ),
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Enter the postal address of this pickup location. This will be used to display a map to visitors.',
       'display' => array(
         'default' => array(
           'label' => 'hidden',
@@ -631,7 +635,7 @@ function farmier_csa_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_farmier_csa_pickup_address',
+      'field_name' => 'field_pickup_address',
       'label' => 'Address',
       'required' => 1,
       'settings' => array(
@@ -658,14 +662,89 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-farmier_csa_pickup-field_farmier_geofield'.
-  $fields['node-farmier_csa_pickup-field_farmier_geofield'] = array(
+  // Exported field: 'node-farmier_csa_pickup-field_pickup_contact'.
+  $fields['node-farmier_csa_pickup-field_pickup_contact'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_farmier_geofield',
+      'field_name' => 'field_pickup_contact',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'farmier_csa_pickup',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Enter the name of a person who will be at this pickup location during the allotted time. This will only be visible to CSA Members and admins.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '4',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_pickup_contact',
+      'label' => 'Pickup Contact',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-farmier_csa_pickup-field_pickup_map'.
+  $fields['node-farmier_csa_pickup-field_pickup_map'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_pickup_map',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
       'foreign keys' => array(),
       'indexes' => array(),
       'locked' => '0',
@@ -697,7 +776,7 @@ function farmier_csa_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'field_farmier_geofield',
+      'field_name' => 'field_pickup_map',
       'label' => 'Map',
       'required' => 0,
       'settings' => array(
@@ -713,7 +792,7 @@ function farmier_csa_field_default_fields() {
         'module' => 'geocoder',
         'settings' => array(
           'delta_handling' => 'default',
-          'geocoder_field' => 'field_farmier_csa_pickup_address',
+          'geocoder_field' => 'field_pickup_address',
           'geocoder_handler' => 'google',
           'handler_settings' => array(
             'google' => array(
@@ -730,6 +809,231 @@ function farmier_csa_field_default_fields() {
         ),
         'type' => 'geocoder',
         'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-farmier_csa_pickup-field_pickup_phone'.
+  $fields['node-farmier_csa_pickup-field_pickup_phone'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_pickup_phone',
+      'field_permissions' => array(
+        'type' => '2',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'farmier_csa_pickup',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Enter the phone number of this pickup location\'s contact person. This will only be visible to CSA Members and admins.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_pickup_phone',
+      'label' => 'Phone Number',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '7',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-farmier_csa_pickup-field_pickup_time'.
+  $fields['node-farmier_csa_pickup-field_pickup_time'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_pickup_time',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'locked' => '0',
+      'module' => 'date',
+      'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 'hour',
+          'minute' => 'minute',
+          'month' => 'month',
+          'second' => 0,
+          'year' => 'year',
+        ),
+        'repeat' => '1',
+        'timezone_db' => 'UTC',
+        'todate' => 'optional',
+        'tz_handling' => 'site',
+      ),
+      'translatable' => '0',
+      'type' => 'datestamp',
+    ),
+    'field_instance' => array(
+      'bundle' => 'farmier_csa_pickup',
+      'deleted' => '0',
+      'description' => 'Enter the time that deliveries will be available at this pickup location. Start with the first date that deliveries will be made, and then check "Repeat" to describe how often the deliveries will be to this location. This will be used for generating pickup calendars.',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '8',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_pickup_time',
+      'label' => 'Time (calendar)',
+      'required' => 0,
+      'settings' => array(
+        'default_value' => 'now',
+        'default_value2' => 'same',
+        'default_value_code' => '',
+        'default_value_code2' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'date',
+        'settings' => array(
+          'increment' => '15',
+          'input_format' => 'M j Y - g:i:sa',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 1,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_popup',
+        'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-farmier_csa_pickup-field_pickup_time_phrase'.
+  $fields['node-farmier_csa_pickup-field_pickup_time_phrase'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_pickup_time_phrase',
+      'field_permissions' => array(
+        'type' => '0',
+      ),
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '255',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'farmier_csa_pickup',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Enter a simple phrase to describe this location\'s pickup time, like "Mondays between 1 and 4pm". This will be displayed to visitors, as opposed to the <em>Time (calendar)</em> field above, which is used for generating pickup calendars.',
+      'display' => array(
+        'default' => array(
+          'label' => 'hidden',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_pickup_time_phrase',
+      'label' => 'Time (phrase)',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '4',
       ),
     ),
   );
@@ -760,6 +1064,7 @@ function farmier_csa_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
+        'repeat' => 0,
         'timezone_db' => '',
         'todate' => '',
         'tz_handling' => 'none',
@@ -781,6 +1086,7 @@ function farmier_csa_field_default_fields() {
             'multiple_from' => '',
             'multiple_number' => '',
             'multiple_to' => '',
+            'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
           'weight' => 0,
@@ -805,6 +1111,7 @@ function farmier_csa_field_default_fields() {
           'input_format' => 'M j Y - g:i:sa',
           'input_format_custom' => '',
           'label_position' => 'above',
+          'repeat_collapsed' => 0,
           'text_parts' => array(),
           'year_range' => '-3:+3',
         ),
@@ -821,13 +1128,22 @@ function farmier_csa_field_default_fields() {
   t('Date range');
   t('Description');
   t('Disable stock for this product');
+  t('Enter a simple phrase to describe this location\'s pickup time, like "Mondays between 1 and 4pm". This will be displayed to visitors, as opposed to the <em>Time (calendar)</em> field above, which is used for generating pickup calendars.');
+  t('Enter the name of a person who will be at this pickup location during the allotted time. This will only be visible to CSA Members and admins.');
+  t('Enter the phone number of this pickup location\'s contact person. This will only be visible to CSA Members and admins.');
+  t('Enter the postal address of this pickup location. This will be used to display a map to visitors.');
+  t('Enter the time that deliveries will be available at this pickup location. Start with the first date that deliveries will be made, and then check "Repeat" to describe how often the deliveries will be to this location. This will be used for generating pickup calendars.');
   t('Map');
+  t('Phone Number');
+  t('Pickup Contact');
   t('Price');
   t('Season');
   t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/csa_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
   t('Specify when the CSA starts and ends.  This will be used to automatically add and remove the CSA Member role from users, to give them access to member-only information.  Note that this date range is required, whereas specifying a Season (above) is not.  Seasons are mainly for organization, but this date range will determine how long the memberships actually last.');
   t('Stock');
   t('This is the date when this user\'s CSA membership ends. Their CSA Member role will be removed when this date passes.');
+  t('Time (calendar)');
+  t('Time (phrase)');
   t('Use this field to provide more information about the pickup location, including directions, contact information, etc.');
 
   return $fields;
