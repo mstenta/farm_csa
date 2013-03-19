@@ -509,6 +509,14 @@ function farmier_csa_views_default_views() {
     'farmier_csa_subscription' => 'farmier_csa_subscription',
   );
   $handler->display->display_options['filters']['type_1']['group'] = 1;
+  /* Filter criterion: Commerce Product: Date range - end date (field_farmier_csa_date_range:value2) */
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['id'] = 'field_farmier_csa_date_range_value2';
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['table'] = 'field_data_field_farmier_csa_date_range';
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['field'] = 'field_farmier_csa_date_range_value2';
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['group'] = 1;
+  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['default_date'] = 'now';
   /* Filter criterion: User: Roles */
   $handler->display->display_options['filters']['rid']['id'] = 'rid';
   $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
