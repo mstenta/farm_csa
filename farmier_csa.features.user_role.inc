@@ -13,6 +13,18 @@ function farmier_csa_user_default_roles() {
   // Exported role: CSA Member.
   $roles['CSA Member'] = array(
     'name' => 'CSA Member',
+    'weight' => '5',
+  );
+
+  // Exported role: CSA Post-Member.
+  $roles['CSA Post-Member'] = array(
+    'name' => 'CSA Post-Member',
+    'weight' => '6',
+  );
+
+  // Exported role: CSA Pre-Member.
+  $roles['CSA Pre-Member'] = array(
+    'name' => 'CSA Pre-Member',
     'weight' => '4',
   );
 
