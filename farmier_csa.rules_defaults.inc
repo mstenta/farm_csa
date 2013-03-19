@@ -9,54 +9,11 @@
  */
 function farmier_csa_default_rules_configuration() {
   $items = array();
-  $items['rules_farmier_csa_add_role'] = entity_import('rules_config', '{ "rules_farmier_csa_add_role" : {
-      "LABEL" : "Farmier CSA Add Role",
-      "PLUGIN" : "rule",
-      "TAGS" : [ "farmier_csa" ],
-      "REQUIRES" : [ "rules", "rules_scheduler" ],
-      "USES VARIABLES" : {
-        "farmier_csa_user" : { "label" : "User", "type" : "user" },
-        "farmier_csa_end_date" : { "label" : "CSA End Date", "type" : "date" }
-      },
-      "IF" : [
-        { "NOT user_has_role" : {
-            "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "5" : "5" } }
-          }
-        },
-        { "data_is" : {
-            "data" : [ "farmier-csa-end-date" ],
-            "op" : "\\u003E",
-            "value" : [ "farmier-csa-user:field-csa-member-end-date" ]
-          }
-        }
-      ],
-      "DO" : [
-        { "user_add_role" : {
-            "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "5" : "5" } }
-          }
-        },
-        { "data_set" : {
-            "data" : [ "farmier-csa-user:field-csa-member-end-date" ],
-            "value" : [ "farmier-csa-end-date" ]
-          }
-        },
-        { "schedule" : {
-            "component" : "rules_farmier_csa_remove_role",
-            "date" : [ "farmier-csa-end-date" ],
-            "identifier" : "farmier_csa_end_membership_[farmier-csa-user:uid]",
-            "param_farmier_csa_user" : [ "farmier-csa-user" ]
-          }
-        }
-      ]
-    }
-  }');
   $items['rules_farmier_csa_line_item_membership'] = entity_import('rules_config', '{ "rules_farmier_csa_line_item_membership" : {
       "LABEL" : "Farmier CSA Line Item Membership",
       "PLUGIN" : "rule",
       "TAGS" : [ "farmier_csa" ],
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "rules", "rules_scheduler" ],
       "USES VARIABLES" : {
         "farmier_csa_user" : { "label" : "User", "type" : "user" },
         "farmier_csa_line_item" : { "label" : "Line item", "type" : "commerce_line_item" }
@@ -67,14 +24,41 @@ function farmier_csa_default_rules_configuration() {
             "entity" : [ "farmier-csa-line-item:commerce-product" ],
             "field" : "field_farmier_csa_date_range"
           }
+        },
+        { "data_is" : {
+            "data" : [
+              "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value2"
+            ],
+            "op" : "\\u003E",
+            "value" : [ "farmier-csa-user:field-csa-member-end-date" ]
+          }
         }
       ],
       "DO" : [
-        { "component_rules_farmier_csa_add_role" : {
-            "farmier_csa_user" : [ "farmier_csa_user" ],
-            "farmier_csa_end_date" : [
+        { "component_rules_farmier_csa_role_pre_member" : { "farmier_csa_user" : [ "farmier_csa_user" ] } },
+        { "data_set" : {
+            "data" : [ "farmier-csa-user:field-csa-member-end-date" ],
+            "value" : [
               "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value2"
             ]
+          }
+        },
+        { "schedule" : {
+            "component" : "rules_farmier_csa_role_member",
+            "date" : [
+              "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value"
+            ],
+            "identifier" : "farmier_csa_begin_membership_[farmier-csa-user:uid]",
+            "param_farmier_csa_user" : [ "farmier-csa-user" ]
+          }
+        },
+        { "schedule" : {
+            "component" : "rules_farmier_csa_role_post_member",
+            "date" : [
+              "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value2"
+            ],
+            "identifier" : "farmier_csa_end_membership_[farmier-csa-user:uid]",
+            "param_farmier_csa_user" : [ "farmier-csa-user" ]
           }
         }
       ]
@@ -111,14 +95,14 @@ function farmier_csa_default_rules_configuration() {
       ]
     }
   }');
-  $items['rules_farmier_csa_remove_role'] = entity_import('rules_config', '{ "rules_farmier_csa_remove_role" : {
-      "LABEL" : "Farmier CSA Remove Role",
+  $items['rules_farmier_csa_role_member'] = entity_import('rules_config', '{ "rules_farmier_csa_role_member" : {
+      "LABEL" : "Farmier CSA Role Member",
       "PLUGIN" : "rule",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "farmier_csa_user" : { "label" : "User", "type" : "user" } },
       "IF" : [
-        { "user_has_role" : {
+        { "NOT user_has_role" : {
             "account" : [ "farmier-csa-user" ],
             "roles" : { "value" : { "5" : "5" } }
           }
@@ -127,10 +111,69 @@ function farmier_csa_default_rules_configuration() {
       "DO" : [
         { "user_remove_role" : {
             "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "7" : "7", "8" : "8" } }
+          }
+        },
+        { "user_add_role" : {
+            "account" : [ "farmier-csa-user" ],
             "roles" : { "value" : { "5" : "5" } }
+          }
+        }
+      ]
+    }
+  }');
+  $items['rules_farmier_csa_role_post_member'] = entity_import('rules_config', '{ "rules_farmier_csa_role_post_member" : {
+      "LABEL" : "Farmier CSA Role Post-Member",
+      "PLUGIN" : "rule",
+      "TAGS" : [ "farmier_csa" ],
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "farmier_csa_user" : { "label" : "User", "type" : "user" } },
+      "IF" : [
+        { "NOT user_has_role" : {
+            "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "8" : "8" } }
+          }
+        }
+      ],
+      "DO" : [
+        { "user_remove_role" : {
+            "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "7" : "7", "5" : "5" } }
+          }
+        },
+        { "user_add_role" : {
+            "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "8" : "8" } }
           }
         },
         { "data_set" : { "data" : [ "farmier-csa-user:field-csa-member-end-date" ] } }
+      ]
+    }
+  }');
+  $items['rules_farmier_csa_role_pre_member'] = entity_import('rules_config', '{ "rules_farmier_csa_role_pre_member" : {
+      "LABEL" : "Farmier CSA Role Pre-Member",
+      "PLUGIN" : "rule",
+      "TAGS" : [ "farmier_csa" ],
+      "REQUIRES" : [ "rules" ],
+      "USES VARIABLES" : { "farmier_csa_user" : { "label" : "User", "type" : "user" } },
+      "IF" : [
+        { "NOT user_has_role" : {
+            "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "7" : "7" } }
+          }
+        }
+      ],
+      "DO" : [
+        { "user_remove_role" : {
+            "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "5" : "5", "8" : "8" } }
+          }
+        },
+        { "user_add_role" : {
+            "account" : [ "farmier-csa-user" ],
+            "roles" : { "value" : { "7" : "7" } }
+          }
+        }
       ]
     }
   }');
@@ -211,7 +254,7 @@ function farmier_csa_default_rules_configuration() {
             ],
             "DO" : [
               { "schedule" : {
-                  "component" : "rules_farmier_csa_remove_role",
+                  "component" : "rules_farmier_csa_role_post_member",
                   "date" : [ "farmier-csa-user:field-csa-member-end-date" ],
                   "identifier" : "farmier_csa_end_membership_[farmier-csa-user:uid]",
                   "param_farmier_csa_user" : [ "farmier-csa-user" ]
@@ -227,7 +270,7 @@ function farmier_csa_default_rules_configuration() {
             ],
             "DO" : [
               { "schedule_delete" : {
-                  "component" : "rules_farmier_csa_remove_role",
+                  "component" : "rules_farmier_csa_role_post_member",
                   "task" : "farmier_csa_end_membership_[farmier-csa-user:uid]"
                 }
               }
