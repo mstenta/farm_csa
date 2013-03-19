@@ -540,29 +540,16 @@ function farmier_csa_views_default_views() {
     5 => 0,
   );
   $handler->display->display_options['filters']['rid']['expose']['reduce'] = TRUE;
-  /* Filter criterion: Commerce Order: Order status */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'commerce_order';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['relationship'] = 'order_id';
-  $handler->display->display_options['filters']['status']['value'] = array(
+  /* Filter criterion: Commerce Order: Order state */
+  $handler->display->display_options['filters']['state']['id'] = 'state';
+  $handler->display->display_options['filters']['state']['table'] = 'commerce_order';
+  $handler->display->display_options['filters']['state']['field'] = 'state';
+  $handler->display->display_options['filters']['state']['relationship'] = 'order_id';
+  $handler->display->display_options['filters']['state']['value'] = array(
+    'pending' => 'pending',
     'completed' => 'completed',
   );
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator_id'] = 'status_op';
-  $handler->display->display_options['filters']['status']['expose']['label'] = 'Order status';
-  $handler->display->display_options['filters']['status']['expose']['description'] = 'Select one or more order statuses.';
-  $handler->display->display_options['filters']['status']['expose']['use_operator'] = TRUE;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
-  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
-  $handler->display->display_options['filters']['status']['expose']['multiple'] = TRUE;
-  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    3 => 0,
-    4 => 0,
-    5 => 0,
-  );
+  $handler->display->display_options['filters']['state']['group'] = 1;
   /* Filter criterion: Commerce Line Item: Type */
   $handler->display->display_options['filters']['type_2']['id'] = 'type_2';
   $handler->display->display_options['filters']['type_2']['table'] = 'commerce_line_item';
