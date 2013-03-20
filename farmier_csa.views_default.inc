@@ -292,7 +292,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
   $handler->display->display_options['filters']['rid']['field'] = 'rid';
   $handler->display->display_options['filters']['rid']['value'] = array(
-    7 => '7',
+    8 => '8',
     5 => '5',
   );
   $handler->display->display_options['filters']['rid']['group'] = 1;
