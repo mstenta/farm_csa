@@ -11,18 +11,18 @@ function farmier_csa_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'farmier_csa_members';
+  $view->name = 'farmier_csa_subscriptions';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'commerce_line_item';
-  $view->human_name = 'Farmier CSA Members';
+  $view->human_name = 'Farmier CSA Subscriptions';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'CSA Members';
+  $handler->display->display_options['title'] = 'CSA Subscriptions';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -480,15 +480,15 @@ function farmier_csa_views_default_views() {
   );
   $handler->display->display_options['filters']['rid']['expose']['reduce'] = TRUE;
 
-  /* Display: All Members */
-  $handler = $view->new_display('page', 'All Members', 'page_3');
+  /* Display: All Subscriptions */
+  $handler = $view->new_display('page', 'All Subscriptions', 'page_3');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['path'] = 'admin/csa/members/all';
 
-  /* Display: Active Members */
-  $handler = $view->new_display('page', 'Active Members', 'page');
+  /* Display: Active Subscriptions */
+  $handler = $view->new_display('page', 'Active Subscriptions', 'page');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'CSA Members (active)';
+  $handler->display->display_options['title'] = 'CSA Subscriptions (active)';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Header: Global: Text area */
@@ -674,23 +674,23 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['vocabulary'] = 'csa_season';
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['hierarchy'] = 1;
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['error_message'] = FALSE;
-  $handler->display->display_options['path'] = 'admin/csa/members/active';
+  $handler->display->display_options['path'] = 'admin/csa/subscriptions/active';
   $handler->display->display_options['menu']['type'] = 'default tab';
-  $handler->display->display_options['menu']['title'] = 'Active Members';
-  $handler->display->display_options['menu']['description'] = 'Members who have purchased a CSA share.';
+  $handler->display->display_options['menu']['title'] = 'Active Subscriptions';
+  $handler->display->display_options['menu']['description'] = 'CSA Subscriptions that are currently active.';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['tab_options']['type'] = 'normal';
-  $handler->display->display_options['tab_options']['title'] = 'Members';
-  $handler->display->display_options['tab_options']['description'] = 'Manage your CSA members.';
+  $handler->display->display_options['tab_options']['title'] = 'Subscriptions';
+  $handler->display->display_options['tab_options']['description'] = 'Manage your CSA Subscriptions.';
   $handler->display->display_options['tab_options']['weight'] = '0';
   $handler->display->display_options['tab_options']['name'] = 'management';
 
-  /* Display: Paying Members */
-  $handler = $view->new_display('page', 'Paying Members', 'page_2');
+  /* Display: Paying Subscriptions */
+  $handler = $view->new_display('page', 'Paying Subscriptions', 'page_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'CSA Members (paying)';
+  $handler->display->display_options['title'] = 'Paying CSA Subscriptions';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Header: Global: Text area */
@@ -865,18 +865,18 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['vocabulary'] = 'csa_season';
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['hierarchy'] = 1;
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['error_message'] = FALSE;
-  $handler->display->display_options['path'] = 'admin/csa/members/paying';
+  $handler->display->display_options['path'] = 'admin/csa/subscriptions/paying';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Paying Members';
-  $handler->display->display_options['menu']['description'] = 'Members who are in the process of paying for their share.';
+  $handler->display->display_options['menu']['title'] = 'Paying Subscriptions';
+  $handler->display->display_options['menu']['description'] = 'Subscriptions that are still being payed for.';
   $handler->display->display_options['menu']['weight'] = '10';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
 
-  /* Display: Inactive Members */
-  $handler = $view->new_display('page', 'Inactive Members', 'page_1');
+  /* Display: Old Subscriptions */
+  $handler = $view->new_display('page', 'Old Subscriptions', 'page_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'CSA Members (inactive)';
+  $handler->display->display_options['title'] = 'Old CSA Subscriptions';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
@@ -1255,14 +1255,14 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['vocabulary'] = 'csa_season';
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['hierarchy'] = 1;
   $handler->display->display_options['filters']['field_farmier_csa_season_tid']['error_message'] = FALSE;
-  $handler->display->display_options['path'] = 'admin/csa/members/inactive';
+  $handler->display->display_options['path'] = 'admin/csa/subscriptions/old';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Inactive Members';
-  $handler->display->display_options['menu']['description'] = 'Members who are no longer subscribed.';
+  $handler->display->display_options['menu']['title'] = 'Old Subscriptions';
+  $handler->display->display_options['menu']['description'] = 'Subscriptions that are no longer active.';
   $handler->display->display_options['menu']['weight'] = '20';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
-  $export['farmier_csa_members'] = $view;
+  $export['farmier_csa_subscriptions'] = $view;
 
   return $export;
 }
