@@ -588,14 +588,14 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'user-user-field_csa_member_end_date'.
-  $fields['user-user-field_csa_member_end_date'] = array(
+  // Exported field: 'user-user-field_csa_member_dates'.
+  $fields['user-user-field_csa_member_dates'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_csa_member_end_date',
+      'field_name' => 'field_csa_member_dates',
       'field_permissions' => array(
         'type' => '2',
       ),
@@ -614,9 +614,9 @@ function farmier_csa_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
-        'repeat' => 0,
+        'repeat' => '0',
         'timezone_db' => '',
-        'todate' => '',
+        'todate' => 'required',
         'tz_handling' => 'none',
       ),
       'translatable' => '0',
@@ -625,7 +625,7 @@ function farmier_csa_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'user',
       'deleted' => '0',
-      'description' => 'This is the date when this user\'s CSA membership ends. Their CSA Member role will be removed when this date passes.',
+      'description' => 'These are the start and end dates of this user\'s CSA membership. Their CSA Member role will be added on the start date, and removed on the end date. These are automatically filled in when a user purchases a CSA Subscription product. They can also be manually changed here.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -639,12 +639,12 @@ function farmier_csa_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => 0,
+          'weight' => 1,
         ),
       ),
       'entity_type' => 'user',
-      'field_name' => 'field_csa_member_end_date',
-      'label' => 'CSA Member End Date',
+      'field_name' => 'field_csa_member_dates',
+      'label' => 'CSA Membership Start/End Dates',
       'required' => 0,
       'settings' => array(
         'default_value' => 'now',
@@ -666,7 +666,7 @@ function farmier_csa_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '41',
+        'weight' => '42',
       ),
     ),
   );
@@ -674,7 +674,7 @@ function farmier_csa_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Assign this product to categories.  To add new categories or edit existing ones, go to the <a href="/admin/structure/taxonomy/product_categories">Product Categories list</a>.');
-  t('CSA Member End Date');
+  t('CSA Membership Start/End Dates');
   t('Date range');
   t('Disable stock for this product');
   t('Price');
@@ -683,7 +683,7 @@ function farmier_csa_field_default_fields() {
   t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/csa_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
   t('Specify when the CSA starts and ends.  This will be used to automatically add and remove the CSA Member role from users, to give them access to member-only information.  Note that this date range is required, whereas specifying a Season (above) is not.  Seasons are mainly for organization, but this date range will determine how long the memberships actually last.');
   t('Stock');
-  t('This is the date when this user\'s CSA membership ends. Their CSA Member role will be removed when this date passes.');
+  t('These are the start and end dates of this user\'s CSA membership. Their CSA Member role will be added on the start date, and removed on the end date. These are automatically filled in when a user purchases a CSA Subscription product. They can also be manually changed here.');
 
   return $fields;
 }
