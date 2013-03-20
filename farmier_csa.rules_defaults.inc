@@ -37,17 +37,8 @@ function farmier_csa_default_rules_configuration() {
       "DO" : [
         { "component_rules_farmier_csa_role_pre_member" : { "farmier_csa_user" : [ "farmier_csa_user" ] } },
         { "data_set" : {
-            "data" : [ "farmier-csa-user:field-csa-member-dates:value" ],
-            "value" : [
-              "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value"
-            ]
-          }
-        },
-        { "data_set" : {
-            "data" : [ "farmier-csa-user:field-csa-member-dates:value2" ],
-            "value" : [
-              "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value2"
-            ]
+            "data" : [ "farmier-csa-user:field-csa-member-dates" ],
+            "value" : [ "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range" ]
           }
         },
         { "schedule" : {
@@ -314,21 +305,20 @@ function farmier_csa_default_rules_configuration() {
             "USING" : { "list" : [ "entity-fetched" ] },
             "ITEM" : { "list_item" : "Current list item" },
             "DO" : [
-              { "data_set" : {
-                  "data" : [ "list-item:order:owner:field-csa-member-dates:value" ],
-                  "value" : [ "commerce-product:field-farmier-csa-date-range:value" ]
+              { "entity_fetch" : {
+                  "USING" : { "type" : "user", "id" : [ "list-item:order:uid" ] },
+                  "PROVIDE" : { "entity_fetched" : { "user_fetched" : "Fetched user" } }
                 }
               },
               { "data_set" : {
-                  "data" : [ "list-item:order:owner:field-csa-member-dates:value2" ],
-                  "value" : [ "commerce-product:field-farmier-csa-date-range:value2" ]
+                  "data" : [ "user-fetched:field-csa-member-dates" ],
+                  "value" : [ "commerce-product:field-farmier-csa-date-range" ]
                 }
               },
-              { "component_rules_farmier_csa_reschedule_roles" : { "farmier_csa_user" : [ "list-item:order:owner" ] } }
+              { "component_rules_farmier_csa_reschedule_roles" : { "farmier_csa_user" : [ "user-fetched" ] } }
             ]
           }
-        },
-        { "drupal_message" : { "message" : "TEST" } }
+        }
       ]
     }
   }');
