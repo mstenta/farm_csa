@@ -30,12 +30,12 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: create field_csa_member_end_date.
-  $permissions['create field_csa_member_end_date'] = array(
-    'name' => 'create field_csa_member_end_date',
+  // Exported permission: create field_csa_member_dates.
+  $permissions['create field_csa_member_dates'] = array(
+    'name' => 'create field_csa_member_dates',
     'roles' => array(
       0 => 'administrator',
-      1 => 'anonymous user',
+      1 => 'editor',
     ),
     'module' => 'field_permissions',
   );
@@ -60,9 +60,9 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: edit field_csa_member_end_date.
-  $permissions['edit field_csa_member_end_date'] = array(
-    'name' => 'edit field_csa_member_end_date',
+  // Exported permission: edit field_csa_member_dates.
+  $permissions['edit field_csa_member_dates'] = array(
+    'name' => 'edit field_csa_member_dates',
     'roles' => array(
       0 => 'administrator',
       1 => 'editor',
@@ -80,9 +80,9 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: edit own field_csa_member_end_date.
-  $permissions['edit own field_csa_member_end_date'] = array(
-    'name' => 'edit own field_csa_member_end_date',
+  // Exported permission: edit own field_csa_member_dates.
+  $permissions['edit own field_csa_member_dates'] = array(
+    'name' => 'edit own field_csa_member_dates',
     'roles' => array(
       0 => 'administrator',
       1 => 'editor',
@@ -110,9 +110,9 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: view field_csa_member_end_date.
-  $permissions['view field_csa_member_end_date'] = array(
-    'name' => 'view field_csa_member_end_date',
+  // Exported permission: view field_csa_member_dates.
+  $permissions['view field_csa_member_dates'] = array(
+    'name' => 'view field_csa_member_dates',
     'roles' => array(
       0 => 'administrator',
       1 => 'editor',
@@ -130,9 +130,9 @@ function farmier_csa_user_default_permissions() {
     'module' => 'commerce_product',
   );
 
-  // Exported permission: view own field_csa_member_end_date.
-  $permissions['view own field_csa_member_end_date'] = array(
-    'name' => 'view own field_csa_member_end_date',
+  // Exported permission: view own field_csa_member_dates.
+  $permissions['view own field_csa_member_dates'] = array(
+    'name' => 'view own field_csa_member_dates',
     'roles' => array(
       0 => 'administrator',
       1 => 'editor',
