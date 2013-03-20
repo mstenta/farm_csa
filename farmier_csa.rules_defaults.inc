@@ -30,7 +30,7 @@ function farmier_csa_default_rules_configuration() {
               "farmier-csa-line-item:commerce-product:field-farmier-csa-date-range:value2"
             ],
             "op" : "\\u003E",
-            "value" : [ "farmier-csa-user:field-csa-member-end-date" ]
+            "value" : [ "farmier-csa-user:field-csa-member-dates:value2" ]
           }
         }
       ],
