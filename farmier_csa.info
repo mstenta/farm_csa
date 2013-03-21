@@ -39,6 +39,7 @@ features[field][] = commerce_product-farmier_csa_subscription-field_product_cate
 features[field][] = user-user-field_csa_member_dates
 features[rules_config][] = rules_farmier_csa_line_item_membership
 features[rules_config][] = rules_farmier_csa_payment
+features[rules_config][] = rules_farmier_csa_product_line_item_membership
 features[rules_config][] = rules_farmier_csa_reschedule_roles
 features[rules_config][] = rules_farmier_csa_role_member
 features[rules_config][] = rules_farmier_csa_role_post_member
