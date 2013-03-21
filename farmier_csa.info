@@ -20,6 +20,7 @@ dependencies[] = list
 dependencies[] = number
 dependencies[] = options
 dependencies[] = role_delegation
+dependencies[] = role_export
 dependencies[] = root_store
 dependencies[] = root_store_pickup
 dependencies[] = rules_scheduler

@@ -188,19 +188,19 @@ function farmier_csa_default_rules_configuration() {
       "IF" : [
         { "NOT user_has_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "5" : "5" } }
+            "roles" : { "value" : { "173712484" : "173712484" } }
           }
         }
       ],
       "DO" : [
         { "user_remove_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "7" : "7", "8" : "8" } }
+            "roles" : { "value" : { "125843996" : "125843996", "196317508" : "196317508" } }
           }
         },
         { "user_add_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "5" : "5" } }
+            "roles" : { "value" : { "173712484" : "173712484" } }
           }
         }
       ]
@@ -215,19 +215,19 @@ function farmier_csa_default_rules_configuration() {
       "IF" : [
         { "NOT user_has_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "7" : "7" } }
+            "roles" : { "value" : { "196317508" : "196317508" } }
           }
         }
       ],
       "DO" : [
         { "user_remove_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "8" : "8", "5" : "5" } }
+            "roles" : { "value" : { "125843996" : "125843996", "173712484" : "173712484" } }
           }
         },
         { "user_add_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "7" : "7" } }
+            "roles" : { "value" : { "196317508" : "196317508" } }
           }
         },
         { "data_set" : { "data" : [ "farmier-csa-user:field-csa-member-dates:value" ] } },
@@ -244,19 +244,19 @@ function farmier_csa_default_rules_configuration() {
       "IF" : [
         { "NOT user_has_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "8" : "8", "5" : "5" } }
+            "roles" : { "value" : { "125843996" : "125843996", "173712484" : "173712484" } }
           }
         }
       ],
       "DO" : [
         { "user_remove_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "7" : "7" } }
+            "roles" : { "value" : { "196317508" : "196317508" } }
           }
         },
         { "user_add_role" : {
             "account" : [ "farmier-csa-user" ],
-            "roles" : { "value" : { "8" : "8" } }
+            "roles" : { "value" : { "125843996" : "125843996" } }
           }
         }
       ]

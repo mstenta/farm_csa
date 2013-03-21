@@ -14,8 +14,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['assign CSA Member role'] = array(
     'name' => 'assign CSA Member role',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'role_delegation',
   );
@@ -24,8 +24,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['create commerce_product entities of bundle farmier_csa_subscription'] = array(
     'name' => 'create commerce_product entities of bundle farmier_csa_subscription',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'commerce_product',
   );
@@ -34,8 +34,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['create field_csa_member_dates'] = array(
     'name' => 'create field_csa_member_dates',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'field_permissions',
   );
@@ -44,8 +44,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['delete terms in csa_season'] = array(
     'name' => 'delete terms in csa_season',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'taxonomy',
   );
@@ -54,8 +54,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['edit any commerce_product entity of bundle farmier_csa_subscription'] = array(
     'name' => 'edit any commerce_product entity of bundle farmier_csa_subscription',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'commerce_product',
   );
@@ -64,8 +64,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['edit field_csa_member_dates'] = array(
     'name' => 'edit field_csa_member_dates',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'field_permissions',
   );
@@ -74,8 +74,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['edit own commerce_product entities of bundle farmier_csa_subscription'] = array(
     'name' => 'edit own commerce_product entities of bundle farmier_csa_subscription',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'commerce_product',
   );
@@ -84,8 +84,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['edit own field_csa_member_dates'] = array(
     'name' => 'edit own field_csa_member_dates',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'field_permissions',
   );
@@ -94,8 +94,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['edit terms in csa_season'] = array(
     'name' => 'edit terms in csa_season',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'taxonomy',
   );
@@ -104,8 +104,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['view any commerce_product entity of bundle farmier_csa_subscription'] = array(
     'name' => 'view any commerce_product entity of bundle farmier_csa_subscription',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'commerce_product',
   );
@@ -114,8 +114,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['view field_csa_member_dates'] = array(
     'name' => 'view field_csa_member_dates',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'field_permissions',
   );
@@ -124,8 +124,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['view own commerce_product entities of bundle farmier_csa_subscription'] = array(
     'name' => 'view own commerce_product entities of bundle farmier_csa_subscription',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'commerce_product',
   );
@@ -134,8 +134,8 @@ function farmier_csa_user_default_permissions() {
   $permissions['view own field_csa_member_dates'] = array(
     'name' => 'view own field_csa_member_dates',
     'roles' => array(
-      0 => 'administrator',
-      1 => 'editor',
+      0 => 'Administrator',
+      1 => 'Editor',
     ),
     'module' => 'field_permissions',
   );
