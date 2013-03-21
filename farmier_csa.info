@@ -66,3 +66,4 @@ features[user_role][] = CSA Pre-Member
 features[variable][] = date_format_farmier_csa_date
 features[variable][] = field_bundle_settings_commerce_product__farmier_csa_subscription
 features[views_view][] = farmier_csa_members
+features[views_view][] = farmier_csa_subscriptions
