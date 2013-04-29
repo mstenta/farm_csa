@@ -165,7 +165,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = 'Orders';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/user/[uid]/orders">Orders</a>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/admin/store/orders/user/[uid]">Orders</a>';
   /* Field: User: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'users';
@@ -351,12 +351,12 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['mail']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    3 => 0,
-    4 => 0,
-    7 => 0,
-    5 => 0,
-    8 => 0,
-    6 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    125843996 => 0,
+    173712484 => 0,
+    196317508 => 0,
+    146437786 => 0,
   );
   $handler->display->display_options['path'] = 'admin/csa/members/active';
   $handler->display->display_options['menu']['type'] = 'default tab';
