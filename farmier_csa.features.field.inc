@@ -419,14 +419,14 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-field_farmier_csa_season'.
-  $fields['commerce_product-farmier_csa_subscription-field_farmier_csa_season'] = array(
+  // Exported field: 'commerce_product-farmier_csa_subscription-field_farmier_farm_season'.
+  $fields['commerce_product-farmier_csa_subscription-field_farmier_farm_season'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_farmier_csa_season',
+      'field_name' => 'field_farmier_farm_season',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -448,7 +448,7 @@ function farmier_csa_field_default_fields() {
       'settings' => array(
         'allowed_values' => array(
           0 => array(
-            'vocabulary' => 'csa_season',
+            'vocabulary' => 'farm_season',
             'parent' => '0',
           ),
         ),
@@ -464,7 +464,7 @@ function farmier_csa_field_default_fields() {
       ),
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/csa_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").',
+      'description' => 'Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/farm_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -487,7 +487,7 @@ function farmier_csa_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_farmier_csa_season',
+      'field_name' => 'field_farmier_farm_season',
       'label' => 'Season',
       'required' => 0,
       'settings' => array(
@@ -680,7 +680,7 @@ function farmier_csa_field_default_fields() {
   t('Price');
   t('Product Categories');
   t('Season');
-  t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/csa_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
+  t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/farm_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
   t('Specify when the CSA starts and ends.  This will be used to automatically add and remove the CSA Member role from users, to give them access to member-only information.  Note that this date range is required, whereas specifying a Season (above) is not.  Seasons are mainly for organization, but this date range will determine how long the memberships actually last.');
   t('Stock');
   t('These are the start and end dates of this user\'s CSA membership. Their CSA Member role will be added on the start date, and removed on the end date. These are automatically filled in when a user purchases a CSA Subscription product. They can also be manually changed here.');
