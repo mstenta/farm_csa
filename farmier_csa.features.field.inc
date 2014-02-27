@@ -419,14 +419,14 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-field_farmier_farm_season'.
-  $fields['commerce_product-farmier_csa_subscription-field_farmier_farm_season'] = array(
+  // Exported field: 'commerce_product-farmier_csa_subscription-field_farm_season'.
+  $fields['commerce_product-farmier_csa_subscription-field_farm_season'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_farmier_farm_season',
+      'field_name' => 'field_farm_season',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -487,7 +487,7 @@ function farmier_csa_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_farmier_farm_season',
+      'field_name' => 'field_farm_season',
       'label' => 'Season',
       'required' => 0,
       'settings' => array(
