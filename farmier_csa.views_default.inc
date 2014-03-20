@@ -607,7 +607,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'No CSA Subscriptions were found.';
   $handler->display->display_options['empty']['area']['format'] = 'markup';
-  /* Relationship: Commerce Order: Referenced line item */
+  /* Relationship: Commerce Order: Referenced line items */
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['field'] = 'commerce_line_items_line_item_id';
@@ -617,13 +617,13 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['relationships']['order_id']['table'] = 'commerce_line_item';
   $handler->display->display_options['relationships']['order_id']['field'] = 'order_id';
   $handler->display->display_options['relationships']['order_id']['relationship'] = 'commerce_line_items_line_item_id';
-  /* Relationship: Commerce Order: Referenced line item */
+  /* Relationship: Commerce Order: Referenced line items */
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id_1']['id'] = 'commerce_line_items_line_item_id_1';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id_1']['table'] = 'field_data_commerce_line_items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id_1']['field'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id_1']['relationship'] = 'order_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id_1']['label'] = 'Shipping line Item';
-  /* Relationship: Commerce Line item: Referenced product */
+  /* Relationship: Commerce Line item: Referenced products */
   $handler->display->display_options['relationships']['commerce_product_product_id']['id'] = 'commerce_product_product_id';
   $handler->display->display_options['relationships']['commerce_product_product_id']['table'] = 'field_data_commerce_product';
   $handler->display->display_options['relationships']['commerce_product_product_id']['field'] = 'commerce_product_product_id';
@@ -694,7 +694,6 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['fields']['commerce_total']['relationship'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['fields']['commerce_total']['label'] = 'Subscription Price';
   $handler->display->display_options['fields']['commerce_total']['click_sort_column'] = 'amount';
-  $handler->display->display_options['fields']['commerce_total']['type'] = 'commerce_price_formatted_amount';
   $handler->display->display_options['fields']['commerce_total']['settings'] = array(
     'calculation' => FALSE,
   );
@@ -766,7 +765,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['field_farm_season_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_farm_season_tid']['vocabulary'] = 'farm_season';
   $handler->display->display_options['filters']['field_farm_season_tid']['hierarchy'] = 1;
-  /* Filter criterion: Commerce Customer profile: Address (commerce_customer_address:name_line) */
+  /* Filter criterion: Commerce Customer profile: Address - Full name */
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['id'] = 'commerce_customer_address_name_line';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['table'] = 'field_data_commerce_customer_address';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['field'] = 'commerce_customer_address_name_line';
@@ -915,7 +914,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['field_farm_season_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_farm_season_tid']['vocabulary'] = 'farm_season';
   $handler->display->display_options['filters']['field_farm_season_tid']['hierarchy'] = 1;
-  /* Filter criterion: Commerce Customer profile: Address (commerce_customer_address:name_line) */
+  /* Filter criterion: Commerce Customer profile: Address - Full name */
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['id'] = 'commerce_customer_address_name_line';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['table'] = 'field_data_commerce_customer_address';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['field'] = 'commerce_customer_address_name_line';
@@ -1076,7 +1075,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['field_farm_season_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_farm_season_tid']['vocabulary'] = 'farm_season';
   $handler->display->display_options['filters']['field_farm_season_tid']['hierarchy'] = 1;
-  /* Filter criterion: Commerce Customer profile: Address (commerce_customer_address:name_line) */
+  /* Filter criterion: Commerce Customer profile: Address - Full name */
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['id'] = 'commerce_customer_address_name_line';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['table'] = 'field_data_commerce_customer_address';
   $handler->display->display_options['filters']['commerce_customer_address_name_line']['field'] = 'commerce_customer_address_name_line';

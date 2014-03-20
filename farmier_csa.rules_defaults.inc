@@ -12,6 +12,7 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_line_item_membership'] = entity_import('rules_config', '{ "rules_farmier_csa_line_item_membership" : {
       "LABEL" : "Farmier CSA Line Item Membership",
       "PLUGIN" : "rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : {
@@ -52,9 +53,10 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_payment'] = entity_import('rules_config', '{ "rules_farmier_csa_payment" : {
       "LABEL" : "Farmier CSA Payment",
       "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "commerce_order", "rules", "entity" ],
-      "ON" : [ "commerce_payment_transaction_insert" ],
+      "ON" : { "commerce_payment_transaction_insert" : [] },
       "IF" : [
         { "commerce_order_contains_product_type" : {
             "commerce_order" : [ "commerce-payment-transaction:order" ],
@@ -83,6 +85,7 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_product_line_item_membership'] = entity_import('rules_config', '{ "rules_farmier_csa_product_line_item_membership" : {
       "LABEL" : "Farmier CSA Product Line Item Membership",
       "PLUGIN" : "rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "line_item" : { "label" : "Line item", "type" : "commerce_line_item" } },
@@ -112,6 +115,7 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_reschedule_roles'] = entity_import('rules_config', '{ "rules_farmier_csa_reschedule_roles" : {
       "LABEL" : "Farmier CSA Reschedule Roles",
       "PLUGIN" : "rule set",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules", "rules_scheduler" ],
       "USES VARIABLES" : { "farmier_csa_user" : { "label" : "Farmier CSA User", "type" : "user" } },
@@ -182,6 +186,7 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_role_member'] = entity_import('rules_config', '{ "rules_farmier_csa_role_member" : {
       "LABEL" : "Farmier CSA Role Member",
       "PLUGIN" : "rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "farmier_csa_user" : { "label" : "User", "type" : "user" } },
@@ -209,6 +214,7 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_role_post_member'] = entity_import('rules_config', '{ "rules_farmier_csa_role_post_member" : {
       "LABEL" : "Farmier CSA Role Post-Member",
       "PLUGIN" : "rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "farmier_csa_user" : { "label" : "User", "type" : "user" } },
@@ -238,6 +244,7 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_role_pre_member'] = entity_import('rules_config', '{ "rules_farmier_csa_role_pre_member" : {
       "LABEL" : "Farmier CSA Role Pre-Member",
       "PLUGIN" : "rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
       "USES VARIABLES" : { "farmier_csa_user" : { "label" : "User", "type" : "user" } },
@@ -265,9 +272,10 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_update_member_end_date'] = entity_import('rules_config', '{ "rules_farmier_csa_update_member_end_date" : {
       "LABEL" : "Farmier CSA Update Member",
       "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules" ],
-      "ON" : [ "user_update" ],
+      "ON" : { "user_update" : [] },
       "IF" : [
         { "NOT data_is" : {
             "data" : [ "account:field-csa-member-dates" ],
@@ -283,9 +291,10 @@ function farmier_csa_default_rules_configuration() {
   $items['rules_farmier_csa_update_product'] = entity_import('rules_config', '{ "rules_farmier_csa_update_product" : {
       "LABEL" : "Farmier CSA Update Product",
       "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
       "TAGS" : [ "farmier_csa" ],
       "REQUIRES" : [ "rules", "entity" ],
-      "ON" : [ "commerce_product_update" ],
+      "ON" : { "commerce_product_update" : [] },
       "IF" : [
         { "entity_has_field" : {
             "entity" : [ "commerce-product" ],
