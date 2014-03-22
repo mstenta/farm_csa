@@ -1,26 +1,26 @@
 <?php
 /**
  * @file
- * farmier_csa.strongarm.inc
+ * farm_csa.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function farmier_csa_strongarm() {
+function farm_csa_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'date_format_farmier_csa_date';
+  $strongarm->name = 'date_format_farm_csa_date';
   $strongarm->value = 'M jS, Y';
-  $export['date_format_farmier_csa_date'] = $strongarm;
+  $export['date_format_farm_csa_date'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'field_bundle_settings_commerce_product__farmier_csa_subscription';
+  $strongarm->name = 'field_bundle_settings_commerce_product__farm_csa_subscription';
   $strongarm->value = array(
     'view_modes' => array(
       'line_item' => array(
@@ -130,7 +130,7 @@ function farmier_csa_strongarm() {
       ),
     ),
   );
-  $export['field_bundle_settings_commerce_product__farmier_csa_subscription'] = $strongarm;
+  $export['field_bundle_settings_commerce_product__farm_csa_subscription'] = $strongarm;
 
   return $export;
 }

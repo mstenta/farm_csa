@@ -1,15 +1,15 @@
 <?php
 /**
  * @file
- * Code for the Farmier CSA module.
+ * Code for the Farm CSA module.
  */
 
-include_once 'farmier_csa.features.inc';
+include_once 'farm_csa.features.inc';
 
 /**
  * Implements hook_menu().
  */
-function farmier_csa_menu() {
+function farm_csa_menu() {
   $items = array();
 
   // Top level "CSA" container.

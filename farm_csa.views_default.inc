@@ -1,21 +1,21 @@
 <?php
 /**
  * @file
- * farmier_csa.views_default.inc
+ * farm_csa.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function farmier_csa_views_default_views() {
+function farm_csa_views_default_views() {
   $export = array();
 
   $view = new view();
-  $view->name = 'farmier_csa_members';
+  $view->name = 'farm_csa_members';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'users';
-  $view->human_name = 'Farmier CSA Members';
+  $view->human_name = 'Farm CSA Members';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -469,21 +469,21 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '20';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
-  $export['farmier_csa_members'] = $view;
+  $export['farm_csa_members'] = $view;
 
   $view = new view();
-  $view->name = 'farmier_csa_subscriptions';
+  $view->name = 'farm_csa_subscriptions';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'commerce_order';
-  $view->human_name = 'Farmier CSA Subscriptions';
+  $view->human_name = 'Farm CSA Subscriptions';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Farmier CSA Subscriptions';
+  $handler->display->display_options['title'] = 'Farm CSA Subscriptions';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -737,7 +737,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['type_2']['field'] = 'type';
   $handler->display->display_options['filters']['type_2']['relationship'] = 'commerce_product_product_id';
   $handler->display->display_options['filters']['type_2']['value'] = array(
-    'farmier_csa_subscription' => 'farmier_csa_subscription',
+    'farm_csa_subscription' => 'farm_csa_subscription',
   );
   $handler->display->display_options['filters']['type_2']['group'] = 1;
   /* Filter criterion: Commerce Product: Season (field_farm_season) */
@@ -886,7 +886,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['type_2']['field'] = 'type';
   $handler->display->display_options['filters']['type_2']['relationship'] = 'commerce_product_product_id';
   $handler->display->display_options['filters']['type_2']['value'] = array(
-    'farmier_csa_subscription' => 'farmier_csa_subscription',
+    'farm_csa_subscription' => 'farm_csa_subscription',
   );
   $handler->display->display_options['filters']['type_2']['group'] = 1;
   /* Filter criterion: Commerce Product: Season (field_farm_season) */
@@ -988,14 +988,14 @@ function farmier_csa_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Commerce Product: Date range - end date (field_farmier_csa_date_range:value2) */
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['id'] = 'field_farmier_csa_date_range_value2';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['table'] = 'field_data_field_farmier_csa_date_range';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['field'] = 'field_farmier_csa_date_range_value2';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['relationship'] = 'commerce_product_product_id';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['default_date'] = 'now';
+  /* Filter criterion: Commerce Product: Date range - end date (field_farm_csa_date_range:value2) */
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['id'] = 'field_farm_csa_date_range_value2';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['table'] = 'field_data_field_farm_csa_date_range';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['field'] = 'field_farm_csa_date_range_value2';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['form_type'] = 'date_popup';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'admin/csa/subscriptions/active';
   $handler->display->display_options['menu']['type'] = 'default tab';
   $handler->display->display_options['menu']['title'] = 'Active Subscriptions';
@@ -1047,7 +1047,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['filters']['type_2']['field'] = 'type';
   $handler->display->display_options['filters']['type_2']['relationship'] = 'commerce_product_product_id';
   $handler->display->display_options['filters']['type_2']['value'] = array(
-    'farmier_csa_subscription' => 'farmier_csa_subscription',
+    'farm_csa_subscription' => 'farm_csa_subscription',
   );
   $handler->display->display_options['filters']['type_2']['group'] = 1;
   /* Filter criterion: Commerce Product: Season (field_farm_season) */
@@ -1149,14 +1149,14 @@ function farmier_csa_views_default_views() {
     7 => 0,
     6 => 0,
   );
-  /* Filter criterion: Commerce Product: Date range - end date (field_farmier_csa_date_range:value2) */
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['id'] = 'field_farmier_csa_date_range_value2';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['table'] = 'field_data_field_farmier_csa_date_range';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['field'] = 'field_farmier_csa_date_range_value2';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['relationship'] = 'commerce_product_product_id';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['operator'] = '<';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['form_type'] = 'date_popup';
-  $handler->display->display_options['filters']['field_farmier_csa_date_range_value2']['default_date'] = 'now';
+  /* Filter criterion: Commerce Product: Date range - end date (field_farm_csa_date_range:value2) */
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['id'] = 'field_farm_csa_date_range_value2';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['table'] = 'field_data_field_farm_csa_date_range';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['field'] = 'field_farm_csa_date_range_value2';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['operator'] = '<';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['form_type'] = 'date_popup';
+  $handler->display->display_options['filters']['field_farm_csa_date_range_value2']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'admin/csa/subscriptions/old';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Old Subscriptions';
@@ -1164,7 +1164,7 @@ function farmier_csa_views_default_views() {
   $handler->display->display_options['menu']['weight'] = '20';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
-  $export['farmier_csa_subscriptions'] = $view;
+  $export['farm_csa_subscriptions'] = $view;
 
   return $export;
 }

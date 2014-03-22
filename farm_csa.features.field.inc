@@ -1,17 +1,17 @@
 <?php
 /**
  * @file
- * farmier_csa.features.field.inc
+ * farm_csa.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function farmier_csa_field_default_fields() {
+function farm_csa_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-commerce_price'.
-  $fields['commerce_product-farmier_csa_subscription-commerce_price'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-commerce_price'.
+  $fields['commerce_product-farm_csa_subscription-commerce_price'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -34,7 +34,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'commerce_price',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_subscription',
+      'bundle' => 'farm_csa_subscription',
       'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
@@ -175,8 +175,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-commerce_stock'.
-  $fields['commerce_product-farmier_csa_subscription-commerce_stock'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-commerce_stock'.
+  $fields['commerce_product-farm_csa_subscription-commerce_stock'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -194,7 +194,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'number_integer',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_subscription',
+      'bundle' => 'farm_csa_subscription',
       'default_value' => array(
         0 => array(
           'value' => '0',
@@ -248,8 +248,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-commerce_stock_override'.
-  $fields['commerce_product-farmier_csa_subscription-commerce_stock_override'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-commerce_stock_override'.
+  $fields['commerce_product-farm_csa_subscription-commerce_stock_override'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -277,7 +277,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'list_boolean',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_subscription',
+      'bundle' => 'farm_csa_subscription',
       'default_value' => array(
         0 => array(
           'value' => '0',
@@ -324,14 +324,14 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-field_farmier_csa_date_range'.
-  $fields['commerce_product-farmier_csa_subscription-field_farmier_csa_date_range'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-field_farm_csa_date_range'.
+  $fields['commerce_product-farm_csa_subscription-field_farm_csa_date_range'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_farmier_csa_date_range',
+      'field_name' => 'field_farm_csa_date_range',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -359,7 +359,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'datestamp',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_subscription',
+      'bundle' => 'farm_csa_subscription',
       'deleted' => '0',
       'description' => 'Specify when the CSA starts and ends.  This will be used to automatically add and remove the CSA Member role from users, to give them access to member-only information.  Note that this date range is required, whereas specifying a Season (above) is not.  Seasons are mainly for organization, but this date range will determine how long the memberships actually last.',
       'display' => array(
@@ -367,7 +367,7 @@ function farmier_csa_field_default_fields() {
           'label' => 'inline',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'farmier_csa_date',
+            'format_type' => 'farm_csa_date',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -391,7 +391,7 @@ function farmier_csa_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_farmier_csa_date_range',
+      'field_name' => 'field_farm_csa_date_range',
       'label' => 'Date range',
       'required' => 1,
       'settings' => array(
@@ -419,8 +419,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-field_farm_season'.
-  $fields['commerce_product-farmier_csa_subscription-field_farm_season'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-field_farm_season'.
+  $fields['commerce_product-farm_csa_subscription-field_farm_season'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
@@ -457,7 +457,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_subscription',
+      'bundle' => 'farm_csa_subscription',
       'commerce_cart_settings' => array(
         'attribute_field' => 0,
         'attribute_widget' => 'select',
@@ -503,8 +503,8 @@ function farmier_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farmier_csa_subscription-field_product_categories'.
-  $fields['commerce_product-farmier_csa_subscription-field_product_categories'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-field_product_categories'.
+  $fields['commerce_product-farm_csa_subscription-field_product_categories'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
@@ -542,7 +542,7 @@ function farmier_csa_field_default_fields() {
       'type' => 'taxonomy_term_reference',
     ),
     'field_instance' => array(
-      'bundle' => 'farmier_csa_subscription',
+      'bundle' => 'farm_csa_subscription',
       'commerce_cart_settings' => array(
         'attribute_field' => 0,
         'attribute_widget' => 'select',
