@@ -5,22 +5,6 @@
  */
 
 /**
- * Implements hook_commerce_product_default_types().
- */
-function farm_csa_commerce_product_default_types() {
-  $items = array(
-    'farm_csa_subscription' => array(
-      'type' => 'farm_csa_subscription',
-      'name' => 'CSA Subscription',
-      'description' => 'A product type for selling CSA subscriptions.',
-      'help' => '',
-      'revision' => '1',
-    ),
-  );
-  return $items;
-}
-
-/**
  * Implements hook_ctools_plugin_api().
  */
 function farm_csa_ctools_plugin_api() {

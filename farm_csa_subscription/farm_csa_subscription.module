@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Farm CSA Subscription module.
+ */
+
+include_once 'farm_csa_subscription.features.inc';

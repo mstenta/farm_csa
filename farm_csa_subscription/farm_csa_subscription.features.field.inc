@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * farm_csa.features.field.inc
+ * farm_csa_subscription.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function farm_csa_field_default_fields() {
+function farm_csa_subscription_field_default_fields() {
   $fields = array();
 
   // Exported field: 'commerce_product-farm_csa_subscription-commerce_price'.
@@ -588,89 +588,6 @@ function farm_csa_field_default_fields() {
     ),
   );
 
-  // Exported field: 'user-user-field_csa_member_dates'.
-  $fields['user-user-field_csa_member_dates'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_csa_member_dates',
-      'field_permissions' => array(
-        'type' => '2',
-      ),
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'locked' => '0',
-      'module' => 'date',
-      'settings' => array(
-        'cache_count' => '4',
-        'cache_enabled' => 0,
-        'granularity' => array(
-          'day' => 'day',
-          'hour' => 0,
-          'minute' => 0,
-          'month' => 'month',
-          'second' => 0,
-          'year' => 'year',
-        ),
-        'repeat' => '0',
-        'timezone_db' => '',
-        'todate' => 'required',
-        'tz_handling' => 'none',
-      ),
-      'translatable' => '0',
-      'type' => 'datestamp',
-    ),
-    'field_instance' => array(
-      'bundle' => 'user',
-      'deleted' => '0',
-      'description' => 'These are the start and end dates of this user\'s CSA membership. Their CSA Member role will be added on the start date, and removed on the end date. These are automatically filled in when a user purchases a CSA Subscription product. They can also be manually changed here.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'date',
-          'settings' => array(
-            'format_type' => 'long',
-            'fromto' => 'both',
-            'multiple_from' => '',
-            'multiple_number' => '',
-            'multiple_to' => '',
-            'show_repeat_rule' => 'show',
-          ),
-          'type' => 'date_default',
-          'weight' => 1,
-        ),
-      ),
-      'entity_type' => 'user',
-      'field_name' => 'field_csa_member_dates',
-      'label' => 'CSA Membership Start/End Dates',
-      'required' => 0,
-      'settings' => array(
-        'default_value' => 'now',
-        'default_value2' => 'same',
-        'default_value_code' => '',
-        'default_value_code2' => '',
-        'user_register_form' => 0,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'date',
-        'settings' => array(
-          'increment' => '15',
-          'input_format' => 'M j Y - g:i:sa',
-          'input_format_custom' => '',
-          'label_position' => 'above',
-          'repeat_collapsed' => 0,
-          'text_parts' => array(),
-          'year_range' => '-3:+3',
-        ),
-        'type' => 'date_popup',
-        'weight' => '42',
-      ),
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t('Assign this product to categories.  To add new categories or edit existing ones, go to the <a href="/admin/structure/taxonomy/product_categories">Product Categories list</a>.');
@@ -683,7 +600,6 @@ function farm_csa_field_default_fields() {
   t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/farm_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
   t('Specify when the CSA starts and ends.  This will be used to automatically add and remove the CSA Member role from users, to give them access to member-only information.  Note that this date range is required, whereas specifying a Season (above) is not.  Seasons are mainly for organization, but this date range will determine how long the memberships actually last.');
   t('Stock');
-  t('These are the start and end dates of this user\'s CSA membership. Their CSA Member role will be added on the start date, and removed on the end date. These are automatically filled in when a user purchases a CSA Subscription product. They can also be manually changed here.');
 
   return $fields;
 }
