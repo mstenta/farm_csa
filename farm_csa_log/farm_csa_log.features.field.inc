@@ -68,6 +68,15 @@ function farm_csa_log_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '1',
         ),
+        'token' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '1',
+        ),
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_csa_subscription',
@@ -134,6 +143,15 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '0',
+        ),
+        'token' => array(
           'label' => 'inline',
           'module' => 'entityreference',
           'settings' => array(
@@ -214,6 +232,20 @@ function farm_csa_log_field_default_fields() {
           'type' => 'date_default',
           'weight' => '2',
         ),
+        'token' => array(
+          'label' => 'inline',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => '2',
+        ),
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_date',
@@ -278,6 +310,13 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '3',
+        ),
+        'token' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
@@ -363,6 +402,15 @@ function farm_csa_log_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '1',
         ),
+        'token' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '1',
+        ),
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_csa_subscription',
@@ -429,6 +477,15 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '0',
+        ),
+        'token' => array(
           'label' => 'inline',
           'module' => 'entityreference',
           'settings' => array(
@@ -509,6 +566,20 @@ function farm_csa_log_field_default_fields() {
           'type' => 'date_default',
           'weight' => '2',
         ),
+        'token' => array(
+          'label' => 'inline',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => '2',
+        ),
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_date_range',
@@ -573,6 +644,13 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '3',
+        ),
+        'token' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
@@ -658,6 +736,15 @@ function farm_csa_log_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '2',
         ),
+        'token' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '2',
+        ),
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_csa_order',
@@ -726,6 +813,15 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '1',
+        ),
+        'token' => array(
           'label' => 'inline',
           'module' => 'entityreference',
           'settings' => array(
@@ -808,6 +904,15 @@ function farm_csa_log_field_default_fields() {
           'type' => 'entityreference_label',
           'weight' => '0',
         ),
+        'token' => array(
+          'label' => 'inline',
+          'module' => 'entityreference',
+          'settings' => array(
+            'link' => 1,
+          ),
+          'type' => 'entityreference_label',
+          'weight' => '0',
+        ),
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_customer',
@@ -867,6 +972,20 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'inline',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => '3',
+        ),
+        'token' => array(
           'label' => 'inline',
           'module' => 'date',
           'settings' => array(
@@ -944,6 +1063,13 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '4',
+        ),
+        'token' => array(
           'label' => 'above',
           'module' => 'text',
           'settings' => array(),
