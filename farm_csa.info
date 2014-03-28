@@ -1,6 +1,6 @@
 name = Farm CSA
 core = 7.x
-package = Farm Features
+package = Farm CSA
 dependencies[] = commerce_features
 dependencies[] = commerce_pickup
 dependencies[] = commerce_price
