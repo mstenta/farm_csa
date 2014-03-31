@@ -14,6 +14,7 @@ dependencies[] = list
 dependencies[] = number
 dependencies[] = options
 dependencies[] = strongarm
+dependencies[] = views
 features[commerce_product_type][] = farm_csa_subscription
 features[ctools][] = strongarm:strongarm:1
 features[ctools][] = views:views_default:3.0
