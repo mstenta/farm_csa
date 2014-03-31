@@ -80,7 +80,7 @@ function farm_csa_subscription_strongarm() {
           'weight' => '1',
         ),
         'status' => array(
-          'weight' => '8',
+          'weight' => '9',
         ),
         'metatags' => array(
           'weight' => '9',
@@ -116,7 +116,7 @@ function farm_csa_subscription_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '7',
+            'weight' => '9',
             'visible' => TRUE,
           ),
         ),

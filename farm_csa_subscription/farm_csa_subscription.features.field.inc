@@ -73,7 +73,7 @@ function farm_csa_subscription_field_default_fields() {
             'calculation' => 'calculated_sell_price',
           ),
           'type' => 'commerce_price_formatted_amount',
-          'weight' => '4',
+          'weight' => '5',
         ),
         'diff_standard' => array(
           'label' => 'hidden',
@@ -170,7 +170,7 @@ function farm_csa_subscription_field_default_fields() {
           'currency_code' => 'default',
         ),
         'type' => 'commerce_price_full',
-        'weight' => '5',
+        'weight' => '6',
       ),
     ),
   );
@@ -213,7 +213,7 @@ function farm_csa_subscription_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -243,7 +243,7 @@ function farm_csa_subscription_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '6',
+        'weight' => '7',
       ),
     ),
   );
@@ -291,7 +291,7 @@ function farm_csa_subscription_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -319,19 +319,19 @@ function farm_csa_subscription_field_default_fields() {
           'display_label' => TRUE,
         ),
         'type' => 'options_onoff',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
 
-  // Exported field: 'commerce_product-farm_csa_subscription-field_farm_csa_date_range'.
-  $fields['commerce_product-farm_csa_subscription-field_farm_csa_date_range'] = array(
+  // Exported field: 'commerce_product-farm_csa_subscription-field_farm_date_range'.
+  $fields['commerce_product-farm_csa_subscription-field_farm_date_range'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'field_farm_csa_date_range',
+      'field_name' => 'field_farm_date_range',
       'field_permissions' => array(
         'type' => '0',
       ),
@@ -350,7 +350,7 @@ function farm_csa_subscription_field_default_fields() {
           'second' => 0,
           'year' => 'year',
         ),
-        'repeat' => 0,
+        'repeat' => '0',
         'timezone_db' => '',
         'todate' => 'required',
         'tz_handling' => 'none',
@@ -367,7 +367,7 @@ function farm_csa_subscription_field_default_fields() {
           'label' => 'inline',
           'module' => 'date',
           'settings' => array(
-            'format_type' => 'farm_csa_date',
+            'format_type' => 'long',
             'fromto' => 'both',
             'multiple_from' => '',
             'multiple_number' => '',
@@ -375,7 +375,7 @@ function farm_csa_subscription_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '3',
+          'weight' => '4',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -391,7 +391,7 @@ function farm_csa_subscription_field_default_fields() {
         ),
       ),
       'entity_type' => 'commerce_product',
-      'field_name' => 'field_farm_csa_date_range',
+      'field_name' => 'field_farm_date_range',
       'label' => 'Date range',
       'required' => 1,
       'settings' => array(
@@ -414,7 +414,7 @@ function farm_csa_subscription_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '3',
+        'weight' => '4',
       ),
     ),
   );
@@ -556,7 +556,7 @@ function farm_csa_subscription_field_default_fields() {
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => 7,
+          'weight' => '8',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -583,7 +583,7 @@ function farm_csa_subscription_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '4',
+        'weight' => '5',
       ),
     ),
   );
@@ -591,7 +591,6 @@ function farm_csa_subscription_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Assign this product to categories.  To add new categories or edit existing ones, go to the <a href="/admin/structure/taxonomy/product_categories">Product Categories list</a>.');
-  t('CSA Membership Start/End Dates');
   t('Date range');
   t('Disable stock for this product');
   t('Price');
