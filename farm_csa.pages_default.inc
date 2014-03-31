@@ -16,7 +16,19 @@ function farm_csa_default_page_manager_pages() {
   $page->admin_title = 'Farm CSA Admin';
   $page->admin_description = 'Administrative interface for the CSA.';
   $page->path = 'admin/farm/csa/overview';
-  $page->access = array();
+  $page->access = array(
+    'plugins' => array(
+      0 => array(
+        'name' => 'perm',
+        'settings' => array(
+          'perm' => 'edit any commerce_product entity of bundle farm_csa_subscription',
+        ),
+        'context' => 'logged-in-user',
+        'not' => FALSE,
+      ),
+    ),
+    'logic' => 'and',
+  );
   $page->menu = array(
     'type' => 'default tab',
     'title' => 'Overview',
