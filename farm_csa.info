@@ -1,13 +1,16 @@
 name = Farm CSA
-description = Roles, Rules, and Views for managing a CSA.
+description = Roles, Rules, Views, and Panels for managing a CSA.
 core = 7.x
 package = Farm CSA
 dependencies[] = ctools
 dependencies[] = farm_csa_subscription
 dependencies[] = features
+dependencies[] = page_manager
 dependencies[] = role_export
 dependencies[] = rules_scheduler
+features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:1
+features[page_manager_pages][] = farm_csa_admin
 features[rules_config][] = rules_farm_csa_line_item_membership
 features[rules_config][] = rules_farm_csa_payment
 features[rules_config][] = rules_farm_csa_product_line_item_membership

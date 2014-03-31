@@ -3,3 +3,5 @@
  * @file
  * Code for the Farm CSA module.
  */
+
+include_once 'farm_csa.features.inc';
