@@ -473,6 +473,12 @@ function farm_csa_subscription_field_default_fields() {
           'type' => 'taxonomy_term_reference_link',
           'weight' => '2',
         ),
+        'entityreference_view_widget' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
         'line_item' => array(
           'label' => 'above',
           'settings' => array(),
@@ -503,98 +509,11 @@ function farm_csa_subscription_field_default_fields() {
     ),
   );
 
-  // Exported field: 'commerce_product-farm_csa_subscription-field_product_categories'.
-  $fields['commerce_product-farm_csa_subscription-field_product_categories'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_product_categories',
-      'field_permissions' => array(
-        'type' => '0',
-      ),
-      'foreign keys' => array(
-        'tid' => array(
-          'columns' => array(
-            'tid' => 'tid',
-          ),
-          'table' => 'taxonomy_term_data',
-        ),
-      ),
-      'indexes' => array(
-        'tid' => array(
-          0 => 'tid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'taxonomy',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => array(
-            'vocabulary' => 'product_categories',
-            'parent' => '0',
-          ),
-        ),
-        'profile2_private' => FALSE,
-      ),
-      'translatable' => '0',
-      'type' => 'taxonomy_term_reference',
-    ),
-    'field_instance' => array(
-      'bundle' => 'farm_csa_subscription',
-      'commerce_cart_settings' => array(
-        'attribute_field' => 0,
-        'attribute_widget' => 'select',
-      ),
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => 'Assign this product to categories.  To add new categories or edit existing ones, go to the <a href="/admin/structure/taxonomy/product_categories">Product Categories list</a>.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
-          'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '8',
-        ),
-        'line_item' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'node_teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'commerce_product',
-      'field_name' => 'field_product_categories',
-      'label' => 'Product Categories',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '5',
-      ),
-    ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
-  t('Assign this product to categories.  To add new categories or edit existing ones, go to the <a href="/admin/structure/taxonomy/product_categories">Product Categories list</a>.');
   t('Date range');
   t('Disable stock for this product');
   t('Price');
-  t('Product Categories');
   t('Season');
   t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/farm_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
   t('Specify when the CSA starts and ends.  This will be used to automatically add and remove the CSA Member role from users, to give them access to member-only information.  Note that this date range is required, whereas specifying a Season (above) is not.  Seasons are mainly for organization, but this date range will determine how long the memberships actually last.');

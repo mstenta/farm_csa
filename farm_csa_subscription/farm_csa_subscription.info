@@ -23,6 +23,5 @@ features[field][] = commerce_product-farm_csa_subscription-commerce_stock
 features[field][] = commerce_product-farm_csa_subscription-commerce_stock_override
 features[field][] = commerce_product-farm_csa_subscription-field_farm_date_range
 features[field][] = commerce_product-farm_csa_subscription-field_farm_season
-features[field][] = commerce_product-farm_csa_subscription-field_product_categories
 features[variable][] = field_bundle_settings_commerce_product__farm_csa_subscription
 features[views_view][] = farm_csa_subscription_products
