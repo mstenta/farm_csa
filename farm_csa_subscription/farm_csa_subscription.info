@@ -5,6 +5,7 @@ package = Farm CSA
 dependencies[] = commerce_features
 dependencies[] = commerce_price
 dependencies[] = commerce_product
+dependencies[] = commerce_product_ui
 dependencies[] = ctools
 dependencies[] = date
 dependencies[] = date_popup
