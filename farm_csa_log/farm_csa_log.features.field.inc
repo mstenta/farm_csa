@@ -564,7 +564,7 @@ function farm_csa_log_field_default_fields() {
             'link' => 1,
           ),
           'type' => 'entityreference_label',
-          'weight' => '2',
+          'weight' => '3',
         ),
         'token' => array(
           'label' => 'inline',
@@ -588,7 +588,7 @@ function farm_csa_log_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '5',
+        'weight' => '3',
       ),
     ),
   );
@@ -675,7 +675,7 @@ function farm_csa_log_field_default_fields() {
           'view' => 'farm_csa_subscription_products|entityreference_view_widget_1',
         ),
         'type' => 'entityreference_view_widget',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
@@ -728,7 +728,7 @@ function farm_csa_log_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '3',
+          'weight' => '2',
         ),
         'token' => array(
           'label' => 'inline',
@@ -769,7 +769,7 @@ function farm_csa_log_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -890,13 +890,13 @@ function farm_csa_log_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'entityreference',
           'settings' => array(
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => 5,
+          'weight' => '0',
         ),
         'entityreference_view_widget' => array(
           'label' => 'above',
