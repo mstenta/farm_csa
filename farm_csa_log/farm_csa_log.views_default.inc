@@ -145,7 +145,14 @@ function farm_csa_log_views_default_views() {
     'multiple_to' => '',
     'show_repeat_rule' => 'show',
   );
-  /* Filter criterion: Log: Type */
+  /* Field: Log: Log ID */
+  $handler->display->display_options['fields']['id']['id'] = 'id';
+  $handler->display->display_options['fields']['id']['table'] = 'log';
+  $handler->display->display_options['fields']['id']['field'] = 'id';
+  $handler->display->display_options['fields']['id']['label'] = 'Edit';
+  $handler->display->display_options['fields']['id']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['id']['alter']['text'] = '<a href="/log/[id]/edit">edit</a>';
+  /* Filter criterion: Log: Log type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'log';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -242,7 +249,7 @@ function farm_csa_log_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Log: Type */
+  /* Filter criterion: Log: Log type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'log';
   $handler->display->display_options['filters']['type']['field'] = 'type';
