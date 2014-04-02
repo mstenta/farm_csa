@@ -44,7 +44,7 @@ function farm_csa_log_default_log_type() {
     "type" : "farm_csa_member_subscribe",
     "label" : "CSA Member: Subscribe",
     "weight" : 0,
-    "name_pattern" : "[log:field-farm-customer:name] - [log:field-farm-csa-products]",
+    "name_pattern" : "[log:field-farm-person:name] - [log:field-farm-csa-products]",
     "rdf_mapping" : []
   }');
   return $items;
