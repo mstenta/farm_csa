@@ -100,9 +100,10 @@ function farm_csa_default_rules_configuration() {
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
       "TAGS" : [ "warning" ],
-      "REQUIRES" : [ "commerce_order", "rules", "entity" ],
+      "REQUIRES" : [ "commerce_cart", "commerce_order", "rules", "entity" ],
       "ON" : { "commerce_payment_transaction_insert" : [] },
       "IF" : [
+        { "NOT commerce_order_is_cart" : { "commerce_order" : [ "commerce-payment-transaction:order" ] } },
         { "commerce_order_contains_product_type" : {
             "commerce_order" : [ "commerce-payment-transaction:order" ],
             "product_type" : { "value" : { "farm_csa_subscription" : "farm_csa_subscription" } },
