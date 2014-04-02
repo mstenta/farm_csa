@@ -151,7 +151,7 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['fields']['id']['field'] = 'id';
   $handler->display->display_options['fields']['id']['label'] = 'Edit';
   $handler->display->display_options['fields']['id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['id']['alter']['text'] = '<a href="/log/[id]/edit">edit</a>';
+  $handler->display->display_options['fields']['id']['alter']['text'] = '<a href="/log/[id]/edit?destination=admin/farm/csa/subscriptions">edit</a>';
   /* Filter criterion: Log: Log type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'log';
