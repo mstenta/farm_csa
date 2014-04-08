@@ -28,6 +28,8 @@ function farm_csa_default_page_manager_pages() {
       ),
     ),
     'logic' => 'and',
+    'type' => 'none',
+    'settings' => NULL,
   );
   $page->menu = array(
     'type' => 'default tab',
@@ -35,7 +37,7 @@ function farm_csa_default_page_manager_pages() {
     'name' => 'navigation',
     'weight' => '-10',
     'parent' => array(
-      'type' => 'normal',
+      'type' => 'tab',
       'title' => 'CSA',
       'name' => 'management',
       'weight' => '0',
