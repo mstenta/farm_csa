@@ -204,6 +204,21 @@ function farm_csa_log_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  /* Header: Global: Unfiltered text */
+  $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
+  $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
+  $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
+  $handler->display->display_options['header']['area_text_custom']['content'] = 'To subscribe a new CSA member, follow these steps:
+
+<ol>
+  <li><a href="/admin/people/create">Create a new user account</a> so that the customer can log into the website to see their order.</li>
+  <li><a href="/admin/commerce/orders/add">Create a new order</a> assigned to that user account, and add one of your <a href="/admin/farm/csa/products">CSA Subscription products</a> to the order.</li>
+  <li>Record a payment on the order, and a subscription will automatically appear in this list.</li>
+</ol>
+
+You may narrow down the list of subscriptions using the fields below. Click "Apply" to apply the filter.';
   $handler->display->display_options['path'] = 'admin/farm/csa/subscriptions';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Subscriptions';
