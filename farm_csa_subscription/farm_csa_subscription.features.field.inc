@@ -455,6 +455,7 @@ function farm_csa_subscription_field_default_fields() {
       'commerce_cart_settings' => array(
         'attribute_field' => 0,
         'attribute_widget' => 'select',
+        'attribute_widget_title' => 'Season',
       ),
       'default_value' => NULL,
       'deleted' => '0',
@@ -495,9 +496,15 @@ function farm_csa_subscription_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
+        'module' => 'autocomplete_deluxe',
+        'settings' => array(
+          'autocomplete_deluxe_path' => 'autocomplete_deluxe/taxonomy',
+          'delimiter' => '',
+          'limit' => '10',
+          'min_length' => '0',
+          'size' => '60',
+        ),
+        'type' => 'autocomplete_deluxe_taxonomy',
         'weight' => '2',
       ),
     ),

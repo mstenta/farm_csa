@@ -2,6 +2,7 @@ name = Farm CSA Subscription
 description = A Commerce product type for representing CSA subscription products.
 core = 7.x
 package = Farm CSA
+dependencies[] = autocomplete_deluxe
 dependencies[] = commerce_features
 dependencies[] = commerce_price
 dependencies[] = commerce_product
