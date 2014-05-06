@@ -81,6 +81,11 @@ function farm_csa_default_rules_configuration() {
             "operator" : "=",
             "value" : [ "commerce-payment-transaction:order:commerce-order-total:amount" ]
           }
+        },
+        { "data_is" : {
+            "data" : [ "commerce-payment-transaction:status" ],
+            "value" : "success"
+          }
         }
       ],
       "DO" : [
