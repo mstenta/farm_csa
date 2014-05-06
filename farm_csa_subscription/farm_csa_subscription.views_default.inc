@@ -110,7 +110,9 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
-  $handler->display->display_options['header']['area_text_custom']['content'] = '<a href="/admin/commerce/products/add/farm-csa-subscription?destination=admin/farm/csa/products">+ Add a subscription product</a>';
+  $handler->display->display_options['header']['area_text_custom']['content'] = '<p><a href="/admin/commerce/products/add/farm-csa-subscription?destination=admin/farm/csa/products">+ Add a subscription product</a></p>
+
+<p>This page lists all products of type "CSA Subscription", along with some of their CSA-specific information. To view a full list of products in the site (not limited to CSA Subscription products), go to the <a href="/admin/commerce/products">Store > Products</a> page.</p>';
   /* No results behavior: Global: Unfiltered text */
   $handler->display->display_options['empty']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['empty']['area_text_custom']['table'] = 'views';
