@@ -66,9 +66,10 @@ function farm_csa_default_rules_configuration() {
       "LABEL" : "Farm CSA Subscription First Payment",
       "PLUGIN" : "reaction rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "commerce_order", "commerce_payment", "rules", "entity" ],
+      "REQUIRES" : [ "rules", "commerce_order", "commerce_payment", "entity" ],
       "ON" : { "commerce_payment_transaction_presave" : [] },
       "IF" : [
+        { "NOT data_is_empty" : { "data" : [ "commerce-payment-transaction:order:owner" ] } },
         { "commerce_order_contains_product_type" : {
             "commerce_order" : [ "commerce-payment-transaction:order" ],
             "product_type" : { "value" : { "farm_csa_subscription" : "farm_csa_subscription" } },
@@ -115,7 +116,8 @@ function farm_csa_default_rules_configuration() {
             "operator" : "\\u003E=",
             "value" : "1"
           }
-        }
+        },
+        { "data_is_empty" : { "data" : [ "commerce-payment-transaction:order:owner" ] } }
       ],
       "DO" : [
         { "drupal_message" : {
