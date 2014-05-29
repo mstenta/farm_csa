@@ -107,10 +107,6 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'log';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'short';
-  /* Field: Log: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'log';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
   /* Field: Log: Person */
   $handler->display->display_options['fields']['field_farm_person']['id'] = 'field_farm_person';
   $handler->display->display_options['fields']['field_farm_person']['table'] = 'field_data_field_farm_person';
@@ -127,13 +123,6 @@ function farm_csa_log_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_farm_csa_products']['delta_offset'] = '0';
-  /* Field: Log: Order */
-  $handler->display->display_options['fields']['field_farm_csa_order']['id'] = 'field_farm_csa_order';
-  $handler->display->display_options['fields']['field_farm_csa_order']['table'] = 'field_data_field_farm_csa_order';
-  $handler->display->display_options['fields']['field_farm_csa_order']['field'] = 'field_farm_csa_order';
-  $handler->display->display_options['fields']['field_farm_csa_order']['settings'] = array(
-    'link' => 1,
-  );
   /* Field: Field: Date range */
   $handler->display->display_options['fields']['field_farm_date_range']['id'] = 'field_farm_date_range';
   $handler->display->display_options['fields']['field_farm_date_range']['table'] = 'field_data_field_farm_date_range';
@@ -146,13 +135,13 @@ function farm_csa_log_views_default_views() {
     'multiple_to' => '',
     'show_repeat_rule' => 'show',
   );
-  /* Field: Log: Log ID */
-  $handler->display->display_options['fields']['id']['id'] = 'id';
-  $handler->display->display_options['fields']['id']['table'] = 'log';
-  $handler->display->display_options['fields']['id']['field'] = 'id';
-  $handler->display->display_options['fields']['id']['label'] = 'Edit';
-  $handler->display->display_options['fields']['id']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['id']['alter']['text'] = '<a href="/log/[id]/edit?destination=admin/farm/csa/subscriptions">edit</a>';
+  /* Field: Log: Order */
+  $handler->display->display_options['fields']['field_farm_csa_order']['id'] = 'field_farm_csa_order';
+  $handler->display->display_options['fields']['field_farm_csa_order']['table'] = 'field_data_field_farm_csa_order';
+  $handler->display->display_options['fields']['field_farm_csa_order']['field'] = 'field_farm_csa_order';
+  $handler->display->display_options['fields']['field_farm_csa_order']['settings'] = array(
+    'link' => 1,
+  );
   /* Filter criterion: Log: Log type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'log';
@@ -160,12 +149,14 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'farm_csa_member_subscribe' => 'farm_csa_member_subscribe',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   /* Filter criterion: User: Name */
   $handler->display->display_options['filters']['uid']['id'] = 'uid';
   $handler->display->display_options['filters']['uid']['table'] = 'users';
   $handler->display->display_options['filters']['uid']['field'] = 'uid';
   $handler->display->display_options['filters']['uid']['relationship'] = 'field_farm_person_target_id';
   $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['group'] = 1;
   $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
   $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
   $handler->display->display_options['filters']['uid']['expose']['label'] = 'Person';
@@ -187,12 +178,33 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['filters']['title']['field'] = 'title';
   $handler->display->display_options['filters']['title']['relationship'] = 'field_farm_csa_products_target_id';
   $handler->display->display_options['filters']['title']['operator'] = 'contains';
+  $handler->display->display_options['filters']['title']['group'] = 1;
   $handler->display->display_options['filters']['title']['exposed'] = TRUE;
   $handler->display->display_options['filters']['title']['expose']['operator_id'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Product search';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
   $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    30037204 => 0,
+    200153887 => 0,
+    125843996 => 0,
+    173712484 => 0,
+    196317508 => 0,
+    146437786 => 0,
+  );
+  /* Filter criterion: Log: Order (field_farm_csa_order) */
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['id'] = 'field_farm_csa_order_target_id';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['table'] = 'field_data_field_farm_csa_order';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['field'] = 'field_farm_csa_order_target_id';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['expose']['operator_id'] = 'field_farm_csa_order_target_id_op';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['expose']['label'] = 'Order #';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['expose']['description'] = 'Enter a specific order number.';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['expose']['operator'] = 'field_farm_csa_order_target_id_op';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['expose']['identifier'] = 'field_farm_csa_order_target_id';
+  $handler->display->display_options['filters']['field_farm_csa_order_target_id']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     30037204 => 0,
