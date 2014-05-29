@@ -597,7 +597,7 @@ function farm_csa_log_field_default_fields() {
   $fields['log-farm_csa_member_subscribe-field_farm_csa_products'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '-1',
+      'cardinality' => '1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_farm_csa_products',
@@ -662,7 +662,7 @@ function farm_csa_log_field_default_fields() {
       ),
       'entity_type' => 'log',
       'field_name' => 'field_farm_csa_products',
-      'label' => 'CSA Product(s)',
+      'label' => 'CSA Product',
       'required' => 1,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -933,7 +933,7 @@ function farm_csa_log_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('CSA Product(s)');
+  t('CSA Product');
   t('Date');
   t('Date range');
   t('Notes');

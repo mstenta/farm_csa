@@ -118,10 +118,11 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['fields']['field_farm_person']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Log: CSA Product(s) */
+  /* Field: Log: CSA Product */
   $handler->display->display_options['fields']['field_farm_csa_products']['id'] = 'field_farm_csa_products';
   $handler->display->display_options['fields']['field_farm_csa_products']['table'] = 'field_data_field_farm_csa_products';
   $handler->display->display_options['fields']['field_farm_csa_products']['field'] = 'field_farm_csa_products';
+  $handler->display->display_options['fields']['field_farm_csa_products']['label'] = 'Product';
   $handler->display->display_options['fields']['field_farm_csa_products']['settings'] = array(
     'link' => 1,
   );
@@ -247,7 +248,7 @@ You may narrow down the list of subscriptions using the fields below. Click "App
   $handler->display->display_options['fields']['field_farm_person']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Log: CSA Product(s) */
+  /* Field: Log: CSA Product */
   $handler->display->display_options['fields']['field_farm_csa_products']['id'] = 'field_farm_csa_products';
   $handler->display->display_options['fields']['field_farm_csa_products']['table'] = 'field_data_field_farm_csa_products';
   $handler->display->display_options['fields']['field_farm_csa_products']['field'] = 'field_farm_csa_products';
@@ -323,7 +324,7 @@ You may narrow down the list of subscriptions using the fields below. Click "App
   $handler->display->display_options['fields']['field_farm_person']['settings'] = array(
     'link' => 1,
   );
-  /* Field: Log: CSA Product(s) */
+  /* Field: Log: CSA Product */
   $handler->display->display_options['fields']['field_farm_csa_products']['id'] = 'field_farm_csa_products';
   $handler->display->display_options['fields']['field_farm_csa_products']['table'] = 'field_data_field_farm_csa_products';
   $handler->display->display_options['fields']['field_farm_csa_products']['field'] = 'field_farm_csa_products';

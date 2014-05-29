@@ -43,7 +43,7 @@ function farm_csa_default_rules_configuration() {
           }
         },
         { "data_set" : {
-            "data" : [ "log-created:field-farm-csa-products:0" ],
+            "data" : [ "log-created:field-farm-csa-products" ],
             "value" : [ "line-item:commerce-product" ]
           }
         },
