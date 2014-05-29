@@ -5,3 +5,93 @@
  */
 
 include_once 'farm_csa.features.inc';
+
+/**
+ * Implements hook_form_alter().
+ */
+function farm_csa_form_alter(&$form, &$form_state, $form_id) {
+
+  // Alter the form for generating farm deliveries.
+  if ($form_id == 'farm_delivery_generate_form') {
+
+    // Add a checkbox for including active CSA subscriptions.
+    $form['csa'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Include active CSA subscriptions'),
+      '#description' => t('If this is checked, deliveries will also be added for all active CSA subcription orders. Note that the "Include orders since" date field above does not apply for these deliveries. All orders that include active CSA subscription products will be used.'),
+      '#default_value' => TRUE,
+      '#weight' => 10,
+    );
+  }
+}
+
+/**
+ * Implements hook_farm_delivery_order_items().
+ */
+function farm_csa_farm_delivery_order_items($form_state) {
+
+  // If the CSA checkbox wasn't checked, bail.
+  if (empty($form_state['values']['csa'])) {
+    return array();
+  }
+
+  // Start an empty deliveries array.
+  $deliveries = array();
+
+  // Convert the delivery date to a unix timestamp.
+  $delivery_date = strtotime($form_state['values']['date']);
+
+  // Load active subscriptions.
+  // Run an entity query that finds all subscription log entities
+  // where the delivery date is between the subscription's start
+  // and end dates.
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'log')
+    ->entityCondition('bundle', 'farm_csa_member_subscribe')
+    ->fieldCondition('field_farm_date_range', 'value', $delivery_date, '<=')
+    ->fieldCondition('field_farm_date_range', 'value2', $delivery_date, '>=')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+  $result = $query->execute();
+  if (isset($result['log'])) {
+    $log_ids = array_keys($result['log']);
+    $logs = entity_load('log', $log_ids);
+  }
+
+  // Generate lists of delivery items by order.
+  if (!empty($logs)) {
+    foreach ($logs as $log) {
+
+      // If there is a product id...
+      if (!empty($log->field_farm_csa_products[LANGUAGE_NONE][0]['target_id'])) {
+        $product_id = $log->field_farm_csa_products[LANGUAGE_NONE][0]['target_id'];
+
+        // Load the product.
+        $product = commerce_product_load($product_id);
+      }
+
+      // If there is an order id...
+      if (!empty($log->field_farm_csa_order[LANGUAGE_NONE][0]['target_id'])) {
+        $order_id = $log->field_farm_csa_order[LANGUAGE_NONE][0]['target_id'];
+
+        // Load the order.
+        $order = commerce_order_load($order_id);
+      }
+
+      // If either the product or order doesn't exist, skip the entire subscription.
+      if (empty($product) || empty($order)) {
+        continue;
+      }
+
+      // If the order is not "completed", skip it.
+      if ($order->status != 'completed') {
+        continue;
+      }
+
+      // Assemble a list of items, using the CSA subscription product titles.
+      $deliveries[$order_id][] = $product->title;
+    }
+  }
+
+  // Return the deliveries.
+  return $deliveries;
+}
