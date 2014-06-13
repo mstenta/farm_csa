@@ -83,7 +83,7 @@ function farm_csa_log_strongarm() {
     'extra_fields' => array(
       'form' => array(
         'redirect' => array(
-          'weight' => '5',
+          'weight' => '4',
         ),
       ),
       'display' => array(),

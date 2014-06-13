@@ -28,7 +28,6 @@ features[field][] = log-farm_csa_member_pause-field_farm_notes
 features[field][] = log-farm_csa_member_subscribe-field_farm_csa_order
 features[field][] = log-farm_csa_member_subscribe-field_farm_csa_products
 features[field][] = log-farm_csa_member_subscribe-field_farm_date_range
-features[field][] = log-farm_csa_member_subscribe-field_farm_notes
 features[field][] = log-farm_csa_member_subscribe-field_farm_person
 features[log_type][] = farm_csa_member_cancel
 features[log_type][] = farm_csa_member_pause

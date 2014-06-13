@@ -564,7 +564,7 @@ function farm_csa_log_field_default_fields() {
             'link' => 1,
           ),
           'type' => 'entityreference_label',
-          'weight' => '3',
+          'weight' => '2',
         ),
         'token' => array(
           'label' => 'inline',
@@ -588,7 +588,7 @@ function farm_csa_log_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -728,7 +728,7 @@ function farm_csa_log_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '2',
+          'weight' => '3',
         ),
         'token' => array(
           'label' => 'inline',
@@ -769,75 +769,7 @@ function farm_csa_log_field_default_fields() {
           'year_range' => '-3:+3',
         ),
         'type' => 'date_popup',
-        'weight' => '2',
-      ),
-    ),
-  );
-
-  // Exported field: 'log-farm_csa_member_subscribe-field_farm_notes'.
-  $fields['log-farm_csa_member_subscribe-field_farm_notes'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_farm_notes',
-      'foreign keys' => array(
-        'format' => array(
-          'columns' => array(
-            'format' => 'format',
-          ),
-          'table' => 'filter_format',
-        ),
-      ),
-      'indexes' => array(
-        'format' => array(
-          0 => 'format',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'text',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'text_long',
-    ),
-    'field_instance' => array(
-      'bundle' => 'farm_csa_member_subscribe',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '4',
-        ),
-        'token' => array(
-          'label' => 'above',
-          'module' => 'text',
-          'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '4',
-        ),
-      ),
-      'entity_type' => 'log',
-      'field_name' => 'field_farm_notes',
-      'label' => 'Notes',
-      'required' => 0,
-      'settings' => array(
-        'text_processing' => '0',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'text',
-        'settings' => array(
-          'rows' => '5',
-        ),
-        'type' => 'text_textarea',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
