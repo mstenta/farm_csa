@@ -86,12 +86,15 @@ function farm_csa_log_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference_view_widget',
+        'module' => 'entityreference',
         'settings' => array(
+          'match_operator' => 'CONTAINS',
           'pass_argument' => 0,
+          'path' => '',
+          'size' => 60,
           'view' => 'farm_csa_subscriptions|entityreference_view_widget_1',
         ),
-        'type' => 'entityreference_view_widget',
+        'type' => 'entityreference_autocomplete',
         'weight' => '2',
       ),
     ),
@@ -335,12 +338,15 @@ function farm_csa_log_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference_view_widget',
+        'module' => 'entityreference',
         'settings' => array(
+          'match_operator' => 'CONTAINS',
           'pass_argument' => 0,
+          'path' => '',
+          'size' => 60,
           'view' => 'farm_csa_subscriptions|entityreference_view_widget_1',
         ),
-        'type' => 'entityreference_view_widget',
+        'type' => 'entityreference_autocomplete',
         'weight' => '2',
       ),
     ),
@@ -553,7 +559,7 @@ function farm_csa_log_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'farm_csa_member_subscribe',
-      'default_value' => NULL,
+      'default_value' => array(),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -585,9 +591,13 @@ function farm_csa_log_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
+        'module' => 'entityreference',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'path' => '',
+          'size' => 60,
+        ),
+        'type' => 'entityreference_autocomplete',
         'weight' => '2',
       ),
     ),
@@ -669,12 +679,15 @@ function farm_csa_log_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference_view_widget',
+        'module' => 'entityreference',
         'settings' => array(
+          'match_operator' => 'CONTAINS',
           'pass_argument' => 0,
+          'path' => '',
+          'size' => 60,
           'view' => 'farm_csa_subscription_products|entityreference_view_widget_1',
         ),
-        'type' => 'entityreference_view_widget',
+        'type' => 'entityreference_autocomplete',
         'weight' => '1',
       ),
     ),
@@ -818,6 +831,7 @@ function farm_csa_log_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'farm_csa_member_subscribe',
+      'default_value' => array(),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -852,12 +866,15 @@ function farm_csa_log_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'entityreference_view_widget',
+        'module' => 'entityreference',
         'settings' => array(
+          'match_operator' => 'CONTAINS',
           'pass_argument' => 0,
+          'path' => '',
+          'size' => 60,
           'view' => 'farm_people|entityreference_view_widget_1',
         ),
-        'type' => 'entityreference_view_widget',
+        'type' => 'entityreference_autocomplete',
         'weight' => '0',
       ),
     ),
