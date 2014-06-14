@@ -37,24 +37,16 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'created' => 'created',
-    'name' => 'name',
     'field_farm_person' => 'field_farm_person',
     'field_farm_csa_products' => 'field_farm_csa_products',
-    'field_farm_csa_order' => 'field_farm_csa_order',
     'field_farm_date_range' => 'field_farm_date_range',
+    'field_farm_csa_order' => 'field_farm_csa_order',
   );
   $handler->display->display_options['style_options']['default'] = 'created';
   $handler->display->display_options['style_options']['info'] = array(
     'created' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'name' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -67,11 +59,6 @@ function farm_csa_log_views_default_views() {
       'empty_column' => 0,
     ),
     'field_farm_csa_products' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_farm_csa_order' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -79,6 +66,13 @@ function farm_csa_log_views_default_views() {
       'empty_column' => 0,
     ),
     'field_farm_date_range' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_farm_csa_order' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
