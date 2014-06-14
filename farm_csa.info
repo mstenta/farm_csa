@@ -14,6 +14,7 @@ dependencies[] = page_manager
 dependencies[] = role_export
 dependencies[] = rules
 dependencies[] = rules_array_create
+dependencies[] = views_bulk_operations
 features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:1
 features[page_manager_pages][] = farm_csa_admin
