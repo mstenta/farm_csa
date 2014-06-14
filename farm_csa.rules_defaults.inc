@@ -13,7 +13,7 @@ function farm_csa_default_rules_configuration() {
       "LABEL" : "Farm CSA Subscribe from Line Item",
       "PLUGIN" : "rule",
       "OWNER" : "rules",
-      "REQUIRES" : [ "rules" ],
+      "REQUIRES" : [ "rules", "rules_array_create" ],
       "USES VARIABLES" : { "line_item" : { "label" : "Line item", "type" : "commerce_line_item" } },
       "IF" : [
         { "NOT data_is_empty" : { "data" : [ "line-item:order:uid" ] } },
@@ -26,39 +26,51 @@ function farm_csa_default_rules_configuration() {
         }
       ],
       "DO" : [
-        { "entity_create" : {
-            "USING" : {
-              "type" : "log",
-              "param_type" : "farm_csa_member_subscribe",
-              "param_uid" : [ "site:current-user" ],
-              "param_created" : "now",
-              "param_changed" : "now"
-            },
-            "PROVIDE" : { "entity_created" : { "log_created" : "Created log" } }
+        { "array_create" : {
+            "USING" : { "size" : [ "line-item:quantity" ] },
+            "PROVIDE" : { "array_added" : { "quantity_array" : "Quantity Array" } }
           }
         },
-        { "data_set" : {
-            "data" : [ "log-created:field-farm-person" ],
-            "value" : [ "line-item:order:owner" ]
+        { "LOOP" : {
+            "USING" : { "list" : [ "quantity-array" ] },
+            "ITEM" : { "list_item" : "Current list item" },
+            "DO" : [
+              { "entity_create" : {
+                  "USING" : {
+                    "type" : "log",
+                    "param_type" : "farm_csa_member_subscribe",
+                    "param_uid" : [ "site:current-user" ],
+                    "param_created" : "now",
+                    "param_changed" : "now"
+                  },
+                  "PROVIDE" : { "entity_created" : { "log_created" : "Created log" } }
+                }
+              },
+              { "data_set" : {
+                  "data" : [ "log-created:field-farm-person" ],
+                  "value" : [ "line-item:order:owner" ]
+                }
+              },
+              { "data_set" : {
+                  "data" : [ "log-created:field-farm-csa-products" ],
+                  "value" : [ "line-item:commerce-product" ]
+                }
+              },
+              { "data_set" : {
+                  "data" : [ "log-created:field-farm-date-range" ],
+                  "value" : [ "line-item:commerce-product:field-farm-date-range" ]
+                }
+              },
+              { "data_set" : {
+                  "data" : [ "log-created:field-farm-csa-order" ],
+                  "value" : [ "line-item:order" ]
+                }
+              },
+              { "data_set" : { "data" : [ "log-created:name" ] } },
+              { "entity_save" : { "data" : [ "log-created" ], "immediate" : 1 } }
+            ]
           }
-        },
-        { "data_set" : {
-            "data" : [ "log-created:field-farm-csa-products" ],
-            "value" : [ "line-item:commerce-product" ]
-          }
-        },
-        { "data_set" : {
-            "data" : [ "log-created:field-farm-date-range" ],
-            "value" : [ "line-item:commerce-product:field-farm-date-range" ]
-          }
-        },
-        { "data_set" : {
-            "data" : [ "log-created:field-farm-csa-order" ],
-            "value" : [ "line-item:order" ]
-          }
-        },
-        { "data_set" : { "data" : [ "log-created:name" ] } },
-        { "entity_save" : { "data" : [ "log-created" ] } }
+        }
       ]
     }
   }');
