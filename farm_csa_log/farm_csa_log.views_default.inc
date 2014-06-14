@@ -307,6 +307,188 @@ You may narrow down the list of subscriptions using the fields below. Click "App
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+
+  /* Display: Subscriptions by Order (Page) */
+  $handler = $view->new_display('page', 'Subscriptions by Order (Page)', 'page_1');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'created' => 'created',
+    'field_farm_person' => 'field_farm_person',
+    'field_farm_csa_products' => 'field_farm_csa_products',
+    'field_farm_date_range' => 'field_farm_date_range',
+  );
+  $handler->display->display_options['style_options']['default'] = 'created';
+  $handler->display->display_options['style_options']['info'] = array(
+    'created' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_farm_person' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_farm_csa_products' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_farm_date_range' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Bulk operations: Log */
+  $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'log';
+  $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
+  $handler->display->display_options['fields']['views_bulk_operations']['label'] = 'Subscription';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['display_type'] = '1';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['enable_select_all_pages'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['force_single'] = 0;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['entity_load_capacity'] = '10';
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_settings']['skip_batching'] = 1;
+  $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
+    'action::views_bulk_operations_delete_item' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 1,
+      'label' => 'Delete',
+    ),
+    'action::views_bulk_operations_delete_revision' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::views_bulk_operations_script_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::views_bulk_operations_modify_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'settings' => array(
+        'show_all_tokens' => 1,
+        'display_values' => array(
+          '_all_' => '_all_',
+        ),
+      ),
+    ),
+    'action::views_bulk_operations_argument_selector_action' => array(
+      'selected' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+      'settings' => array(
+        'url' => '',
+      ),
+    ),
+    'action::system_send_email_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+    'action::panelizer_set_status_action' => array(
+      'selected' => 0,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
+  );
+  /* Field: Log: Created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'log';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'short';
+  /* Field: Log: Person */
+  $handler->display->display_options['fields']['field_farm_person']['id'] = 'field_farm_person';
+  $handler->display->display_options['fields']['field_farm_person']['table'] = 'field_data_field_farm_person';
+  $handler->display->display_options['fields']['field_farm_person']['field'] = 'field_farm_person';
+  $handler->display->display_options['fields']['field_farm_person']['settings'] = array(
+    'link' => 1,
+  );
+  /* Field: Log: CSA Product */
+  $handler->display->display_options['fields']['field_farm_csa_products']['id'] = 'field_farm_csa_products';
+  $handler->display->display_options['fields']['field_farm_csa_products']['table'] = 'field_data_field_farm_csa_products';
+  $handler->display->display_options['fields']['field_farm_csa_products']['field'] = 'field_farm_csa_products';
+  $handler->display->display_options['fields']['field_farm_csa_products']['label'] = 'Product';
+  $handler->display->display_options['fields']['field_farm_csa_products']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['fields']['field_farm_csa_products']['delta_offset'] = '0';
+  /* Field: Field: Date range */
+  $handler->display->display_options['fields']['field_farm_date_range']['id'] = 'field_farm_date_range';
+  $handler->display->display_options['fields']['field_farm_date_range']['table'] = 'field_data_field_farm_date_range';
+  $handler->display->display_options['fields']['field_farm_date_range']['field'] = 'field_farm_date_range';
+  $handler->display->display_options['fields']['field_farm_date_range']['settings'] = array(
+    'format_type' => 'short',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_repeat_rule' => 'show',
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Log: Order (field_farm_csa_order) */
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['id'] = 'field_farm_csa_order_target_id';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['table'] = 'field_data_field_farm_csa_order';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['field'] = 'field_farm_csa_order_target_id';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['default_argument_options']['index'] = '3';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_farm_csa_order_target_id']['validate']['type'] = 'numeric';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Log: Log type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'log';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'farm_csa_member_subscribe' => 'farm_csa_member_subscribe',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  $handler->display->display_options['path'] = 'admin/commerce/orders/%/subscriptions';
+  $handler->display->display_options['menu']['type'] = 'tab';
+  $handler->display->display_options['menu']['title'] = 'Subscriptions';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['name'] = 'management';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
+  $handler->display->display_options['tab_options']['type'] = 'normal';
+  $handler->display->display_options['tab_options']['title'] = 'CSA';
+  $handler->display->display_options['tab_options']['weight'] = '0';
+  $handler->display->display_options['tab_options']['name'] = 'management';
   $export['farm_csa_subscriptions'] = $view;
 
   return $export;
