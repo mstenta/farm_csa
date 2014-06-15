@@ -67,17 +67,17 @@ function farm_csa_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Implements hook_farm_delivery_order_items().
+ * Implements hook_farm_delivery_orders().
  */
-function farm_csa_farm_delivery_order_items($form_state) {
+function farm_csa_farm_delivery_orders($form_state) {
 
   // If the CSA checkbox wasn't checked, bail.
   if (empty($form_state['values']['csa'])) {
     return array();
   }
 
-  // Start an empty deliveries array.
-  $deliveries = array();
+  // Start an empty delivery orders array.
+  $delivery_orders = array();
 
   // Convert the delivery date to a unix timestamp.
   $delivery_date = strtotime($form_state['values']['date']);
@@ -102,14 +102,6 @@ function farm_csa_farm_delivery_order_items($form_state) {
   if (!empty($logs)) {
     foreach ($logs as $log) {
 
-      // If there is a product id...
-      if (!empty($log->field_farm_csa_products[LANGUAGE_NONE][0]['target_id'])) {
-        $product_id = $log->field_farm_csa_products[LANGUAGE_NONE][0]['target_id'];
-
-        // Load the product.
-        $product = commerce_product_load($product_id);
-      }
-
       // If there is an order id...
       if (!empty($log->field_farm_csa_order[LANGUAGE_NONE][0]['target_id'])) {
         $order_id = $log->field_farm_csa_order[LANGUAGE_NONE][0]['target_id'];
@@ -118,8 +110,8 @@ function farm_csa_farm_delivery_order_items($form_state) {
         $order = commerce_order_load($order_id);
       }
 
-      // If either the product or order doesn't exist, skip the entire subscription.
-      if (empty($product) || empty($order)) {
+      // If the order doesn't exist, skip the entire subscription.
+      if (empty($order)) {
         continue;
       }
 
@@ -128,11 +120,11 @@ function farm_csa_farm_delivery_order_items($form_state) {
         continue;
       }
 
-      // Assemble a list of items, using the CSA subscription product titles.
-      $deliveries[$order_id][] = $product->title;
+      // Add the order to the list of delivery orders.
+      $delivery_orders[$order->order_id] = $order->order_id;
     }
   }
 
-  // Return the deliveries.
-  return $deliveries;
+  // Return the delivery orders.
+  return $delivery_orders;
 }
