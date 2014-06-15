@@ -96,6 +96,12 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['relationships']['field_farm_csa_products_target_id']['table'] = 'field_data_field_farm_csa_products';
   $handler->display->display_options['relationships']['field_farm_csa_products_target_id']['field'] = 'field_farm_csa_products_target_id';
   $handler->display->display_options['relationships']['field_farm_csa_products_target_id']['label'] = 'CSA Product';
+  /* Field: Global: View result counter */
+  $handler->display->display_options['fields']['counter']['id'] = 'counter';
+  $handler->display->display_options['fields']['counter']['table'] = 'views';
+  $handler->display->display_options['fields']['counter']['field'] = 'counter';
+  $handler->display->display_options['fields']['counter']['label'] = '#';
+  $handler->display->display_options['fields']['counter']['counter_start'] = '1';
   /* Field: Log: Created */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'log';
