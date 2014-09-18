@@ -22,5 +22,3 @@ features[rules_config][] = rules_farm_csa_subscribe_from_line_item
 features[rules_config][] = rules_farm_csa_subscription_first_payment
 features[rules_config][] = rules_farm_csa_warning_order_payment_before_owner
 features[user_role][] = CSA Member
-features[user_role][] = CSA Post-Member
-features[user_role][] = CSA Pre-Member
