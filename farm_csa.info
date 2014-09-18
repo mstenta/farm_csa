@@ -18,6 +18,7 @@ dependencies[] = views_bulk_operations
 features[ctools][] = page_manager:pages_default:1
 features[features_api][] = api:1
 features[page_manager_pages][] = farm_csa_admin
+features[rules_config][] = rules_farm_csa_prorate_share_prices
 features[rules_config][] = rules_farm_csa_subscribe_from_line_item
 features[rules_config][] = rules_farm_csa_subscription_first_payment
 features[rules_config][] = rules_farm_csa_warning_order_payment_before_owner
