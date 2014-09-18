@@ -45,6 +45,7 @@ function farm_csa_subscription_views_default_views() {
     'created' => 'created',
     'changed' => 'changed',
     'status' => 'status',
+    'operations' => 'operations',
   );
   $handler->display->display_options['style_options']['default'] = 'changed';
   $handler->display->display_options['style_options']['info'] = array(
@@ -111,6 +112,11 @@ function farm_csa_subscription_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
+    'operations' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
   );
   $handler->display->display_options['style_options']['empty_table'] = TRUE;
   /* Header: Global: Unfiltered text */
@@ -137,7 +143,7 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'commerce_product';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['link_to_product'] = 1;
-  /* Field: Commerce Product: Season */
+  /* Field: Field: Season */
   $handler->display->display_options['fields']['field_farm_season']['id'] = 'field_farm_season';
   $handler->display->display_options['fields']['field_farm_season']['table'] = 'field_data_field_farm_season';
   $handler->display->display_options['fields']['field_farm_season']['field'] = 'field_farm_season';
@@ -249,7 +255,7 @@ function farm_csa_subscription_views_default_views() {
     173712484 => 0,
     196317508 => 0,
   );
-  /* Filter criterion: Commerce Product: Season (field_farm_season) */
+  /* Filter criterion: Field: Season (field_farm_season) */
   $handler->display->display_options['filters']['field_farm_season_tid']['id'] = 'field_farm_season_tid';
   $handler->display->display_options['filters']['field_farm_season_tid']['table'] = 'field_data_field_farm_season';
   $handler->display->display_options['filters']['field_farm_season_tid']['field'] = 'field_farm_season_tid';
