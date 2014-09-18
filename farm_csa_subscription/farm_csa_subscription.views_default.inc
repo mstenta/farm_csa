@@ -40,6 +40,7 @@ function farm_csa_subscription_views_default_views() {
     'title' => 'title',
     'field_farm_season' => 'field_farm_season',
     'field_farm_date_range' => 'field_farm_date_range',
+    'commerce_price' => 'commerce_price',
     'commerce_stock' => 'commerce_stock',
     'created' => 'created',
     'changed' => 'changed',
@@ -71,6 +72,13 @@ function farm_csa_subscription_views_default_views() {
     'field_farm_date_range' => array(
       'sortable' => 1,
       'default_sort_order' => 'desc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'commerce_price' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -144,6 +152,22 @@ function farm_csa_subscription_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
     'show_repeat_rule' => 'show',
+  );
+  /* Field: Commerce Product: Price */
+  $handler->display->display_options['fields']['commerce_price']['id'] = 'commerce_price';
+  $handler->display->display_options['fields']['commerce_price']['table'] = 'field_data_commerce_price';
+  $handler->display->display_options['fields']['commerce_price']['field'] = 'commerce_price';
+  $handler->display->display_options['fields']['commerce_price']['click_sort_column'] = 'amount';
+  $handler->display->display_options['fields']['commerce_price']['type'] = 'commerce_price_savings_formatter_inline';
+  $handler->display->display_options['fields']['commerce_price']['settings'] = array(
+    'calculation' => 'calculated_sell_price',
+    'prices' => array(
+      'list' => 'list',
+      'price' => 'price',
+      'savings' => 0,
+    ),
+    'savings' => 'percentage',
+    'show_labels' => 0,
   );
   /* Field: Commerce Product: Stock */
   $handler->display->display_options['fields']['commerce_stock']['id'] = 'commerce_stock';

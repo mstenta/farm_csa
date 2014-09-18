@@ -68,11 +68,18 @@ function farm_csa_subscription_field_default_fields() {
         ),
         'default' => array(
           'label' => 'hidden',
-          'module' => 'commerce_price',
+          'module' => 'commerce_price_savings_formatter',
           'settings' => array(
             'calculation' => 'calculated_sell_price',
+            'prices' => array(
+              'list' => 'list',
+              'price' => 'price',
+              'savings' => 'savings',
+            ),
+            'savings' => 'percentage',
+            'show_labels' => 1,
           ),
-          'type' => 'commerce_price_formatted_amount',
+          'type' => 'commerce_price_savings_formatter_formatter',
           'weight' => '5',
         ),
         'diff_standard' => array(

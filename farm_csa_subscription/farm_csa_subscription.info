@@ -5,6 +5,7 @@ package = Farm CSA
 dependencies[] = autocomplete_deluxe
 dependencies[] = commerce_features
 dependencies[] = commerce_price
+dependencies[] = commerce_price_savings_formatter
 dependencies[] = commerce_product
 dependencies[] = commerce_product_ui
 dependencies[] = ctools
