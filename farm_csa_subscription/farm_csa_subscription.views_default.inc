@@ -277,6 +277,21 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['filters']['field_farm_season_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_farm_season_tid']['vocabulary'] = 'farm_season';
   $handler->display->display_options['filters']['field_farm_season_tid']['hierarchy'] = 1;
+  /* Filter criterion: Commerce Product: Status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'commerce_product';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status']['expose']['label'] = 'Active';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
+  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
