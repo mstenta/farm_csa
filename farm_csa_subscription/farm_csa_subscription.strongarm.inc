@@ -80,13 +80,13 @@ function farm_csa_subscription_strongarm() {
           'weight' => '1',
         ),
         'status' => array(
-          'weight' => '9',
+          'weight' => '8',
         ),
         'metatags' => array(
           'weight' => '9',
         ),
         'redirect' => array(
-          'weight' => '10',
+          'weight' => '9',
         ),
       ),
       'display' => array(

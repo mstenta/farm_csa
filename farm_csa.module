@@ -7,24 +7,6 @@
 include_once 'farm_csa.features.inc';
 
 /**
- * Implements hook_menu().
- */
-function farm_csa_menu() {
-
-  // Farm CSA settings form.
-  $items['admin/config/farm/csa'] = array(
-    'title' => 'CSA',
-    'description' => 'Configure CSA management settings.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('farm_csa_settings_form'),
-    'access arguments' => array('access administration pages'),
-    'file' => 'farm_csa.admin.inc',
-  );
-
-  return $items;
-}
-
-/**
  * Implements hook_views_bulk_operations_form_alter().
  */
 function farm_csa_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
