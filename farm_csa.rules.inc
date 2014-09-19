@@ -138,8 +138,8 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
   // Multiply the amount by the discount number of iterations that have passed.
   $amount = $amount * $iterations;
 
-  // If the resulting price is negative, something must be wrong... bail!
-  if ($unit_price - $amount < 0) {
+  // If the resulting price is zero or negative, something must be wrong... bail!
+  if ($unit_price - $amount <= 0) {
     return;
   }
 
