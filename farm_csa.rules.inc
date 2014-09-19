@@ -146,30 +146,8 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
   // This will be acting on the 'discount' price component.
   $component_name = 'discount';
 
-  /**
-   * Below is stock code from commerce_line_item_unit_price_subtract().
-   */
-  $wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
-  $unit_price = commerce_price_wrapper_value($wrapper, 'commerce_unit_price', TRUE);
-
-  // Calculate the updated amount and create a price array representing the
-  // difference between it and the current amount.
-  $current_amount = $unit_price['amount'];
-  $updated_amount = commerce_round($round_mode, $current_amount - $amount);
-
-  $difference = array(
-    'amount' => $updated_amount - $current_amount,
-    'currency_code' => $unit_price['currency_code'],
-    'data' => array(),
-  );
-
-  // Set the amount of the unit price and add the difference as a component.
-  $wrapper->commerce_unit_price->amount = $updated_amount;
-
-  $wrapper->commerce_unit_price->data = commerce_price_component_add(
-    $wrapper->commerce_unit_price->value(),
-    $component_name,
-    $difference,
-    TRUE
-  );
+  // Call out to the commerce_line_item_unit_price_subtract() function
+  // to perform the discounting.
+  module_load_include('inc', 'commerce_line_item', 'commerce_line_item.rules');
+  commerce_line_item_unit_price_subtract($line_item, $amount, $component_name, $round_mode);
 }
