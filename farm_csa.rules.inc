@@ -37,17 +37,6 @@ function farm_csa_rules_action_info() {
  */
 function farm_csa_rules_action_prorate($line_item, $round_mode) {
 
-  // Load the configuration variables.
-  $prorate = variable_get('farm_csa_prorate', FALSE);
-  $prorate_amount = variable_get('farm_csa_prorate_amount', 0);
-  $prorate_type = variable_get('farm_csa_prorate_type', 'percent');
-  $prorate_schedule = variable_get('farm_csa_prorate_schedule', 'weekly');
-
-  // If prorating is disabled, or the amount is zero, bail.
-  if (empty($prorate) || empty($prorate_amount)) {
-    return;
-  }
-
   // Only proceed if the line item has a product associated with it.
   if (empty($line_item->commerce_product[LANGUAGE_NONE][0]['product_id'])) {
     return;
@@ -60,6 +49,35 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
   if ($product->type != 'farm_csa_subscription') {
     return;
   }
+
+  // If prorating is disabled, or the amount is zero, bail.
+  if (empty($product->field_farm_csa_prorate[LANGUAGE_NONE][0]['value']) || empty($product->field_farm_csa_prorate_amount[LANGUAGE_NONE][0]['value'])) {
+    return;
+  }
+
+  // If the prorating schedule is not valid, bail.
+  $schedules = array(
+    'daily',
+    'weekly',
+    'monthly',
+  );
+  if (empty($product->field_farm_csa_prorate_schedule[LANGUAGE_NONE][0]['value']) || !in_array($product->field_farm_csa_prorate_schedule[LANGUAGE_NONE][0]['value'], $schedules)) {
+    return;
+  }
+
+  // If the prorating type is not valid, bail.
+  $types = array(
+    'percent',
+    'fixed',
+  );
+  if (empty($product->field_farm_csa_prorate_type[LANGUAGE_NONE][0]['value']) || !in_array($product->field_farm_csa_prorate_type[LANGUAGE_NONE][0]['value'], $types)) {
+    return;
+  }
+
+  // Load the configuration variables.
+  $prorate_amount = $product->field_farm_csa_prorate_amount[LANGUAGE_NONE][0]['value'];
+  $prorate_type = $product->field_farm_csa_prorate_type[LANGUAGE_NONE][0]['value'];
+  $prorate_schedule = $product->field_farm_csa_prorate_schedule[LANGUAGE_NONE][0]['value'];
 
   // If the product doesn't have a valid date range, bail.
   if (empty($product->field_farm_date_range[LANGUAGE_NONE][0]['value']) || empty($product->field_farm_date_range[LANGUAGE_NONE][0]['value2'])) {
