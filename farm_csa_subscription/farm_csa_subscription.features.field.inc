@@ -370,7 +370,7 @@ function farm_csa_subscription_field_default_fields() {
         ),
       ),
       'deleted' => '0',
-      'description' => 'CSA subscription prices can be prorated on a regular basis during their season (the date range defined for each "CSA Subscription" product). Discounts can be a fixed amount or a percentage, and can be applied daily, weekly, or monthly during the effective dates of the subscription.',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -449,7 +449,7 @@ function farm_csa_subscription_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => '7',
+          'weight' => '6',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -480,7 +480,7 @@ function farm_csa_subscription_field_default_fields() {
         'module' => 'number',
         'settings' => array(),
         'type' => 'number',
-        'weight' => '7',
+        'weight' => '6',
       ),
     ),
   );
@@ -489,50 +489,51 @@ function farm_csa_subscription_field_default_fields() {
   $fields['commerce_product-farm_csa_subscription-field_farm_csa_prorate_schedule'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'field_farm_csa_prorate_schedule',
       'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
+      'indexes' => array(),
       'locked' => '0',
-      'module' => 'list',
+      'module' => 'date',
       'settings' => array(
-        'allowed_values' => array(
-          'daily' => 'Daily',
-          'weekly' => 'Weekly',
-          'monthly' => 'Monthly',
+        'cache_count' => '4',
+        'cache_enabled' => 0,
+        'granularity' => array(
+          'day' => 'day',
+          'hour' => 0,
+          'minute' => 0,
+          'month' => 'month',
+          'second' => 0,
+          'year' => 'year',
         ),
-        'allowed_values_function' => '',
+        'repeat' => '1',
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
       ),
       'translatable' => '0',
-      'type' => 'list_text',
+      'type' => 'datestamp',
     ),
     'field_instance' => array(
       'bundle' => 'farm_csa_subscription',
-      'commerce_cart_settings' => array(
-        'attribute_field' => 0,
-        'attribute_widget' => 'select',
-        'attribute_widget_title' => 'Prorate schedule',
-      ),
-      'default_value' => array(
-        0 => array(
-          'value' => 'weekly',
-        ),
-      ),
       'deleted' => '0',
-      'description' => 'At what interval should discounts be applied?',
+      'description' => '',
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => '6',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'short',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => '8',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -549,17 +550,29 @@ function farm_csa_subscription_field_default_fields() {
       ),
       'entity_type' => 'commerce_product',
       'field_name' => 'field_farm_csa_prorate_schedule',
-      'label' => 'Prorate schedule',
+      'label' => 'Prorating schedule',
       'required' => 0,
       'settings' => array(
+        'default_value' => 'now',
+        'default_value2' => 'same',
+        'default_value_code' => '',
+        'default_value_code2' => '',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_select',
-        'weight' => '6',
+        'module' => 'date',
+        'settings' => array(
+          'increment' => '15',
+          'input_format' => 'M j Y - g:i:sa',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 1,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_popup',
+        'weight' => '8',
       ),
     ),
   );
@@ -610,7 +623,7 @@ function farm_csa_subscription_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '8',
+          'weight' => '7',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -637,7 +650,7 @@ function farm_csa_subscription_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_select',
-        'weight' => '8',
+        'weight' => '7',
       ),
     ),
   );
@@ -830,15 +843,13 @@ function farm_csa_subscription_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('At what interval should discounts be applied?');
-  t('CSA subscription prices can be prorated on a regular basis during their season (the date range defined for each "CSA Subscription" product). Discounts can be a fixed amount or a percentage, and can be applied daily, weekly, or monthly during the effective dates of the subscription.');
   t('Date range');
   t('Disable stock for this product');
   t('Discount amount');
   t('Fixed or percentage');
   t('Price');
-  t('Prorate schedule');
   t('Prorate share prices during the season');
+  t('Prorating schedule');
   t('Season');
   t('Select the CSA Season this product will be associated with.  You can add/edit seasons in the <a href="/admin/structure/taxonomy/farm_season">CSA Seasons list</a>.  This is useful for organizing multiple share types into groups (or "seasons").');
   t('Should the discount amount be treated as a fixed amount or a percentage of the product\'s original price?');

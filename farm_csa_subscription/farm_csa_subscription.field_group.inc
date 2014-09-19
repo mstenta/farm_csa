@@ -34,7 +34,7 @@ function farm_csa_subscription_field_group_info() {
       'instance_settings' => array(
         'required_fields' => 1,
         'classes' => 'group-farm-csa-prorate field-group-fieldset',
-        'description' => '',
+        'description' => 'CSA subscription prices can be prorated on a regular basis during their season (the date range defined for each "CSA Subscription" product). Discounts can be a fixed amount or a percentage. The prorating schedule is defined with a repeating-date rule. Start by selecting the first date that a discount should be applied, and then specify when the next ones will by setting the repeating-date rules.',
       ),
       'formatter' => 'collapsible',
     ),

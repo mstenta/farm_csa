@@ -56,12 +56,7 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
   }
 
   // If the prorating schedule is not valid, bail.
-  $schedules = array(
-    'daily',
-    'weekly',
-    'monthly',
-  );
-  if (empty($product->field_farm_csa_prorate_schedule[LANGUAGE_NONE][0]['value']) || !in_array($product->field_farm_csa_prorate_schedule[LANGUAGE_NONE][0]['value'], $schedules)) {
+  if (empty($product->field_farm_csa_prorate_schedule[LANGUAGE_NONE])) {
     return;
   }
 
@@ -74,10 +69,9 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
     return;
   }
 
-  // Load the configuration variables.
+  // Load the amount and type into variables.
   $prorate_amount = $product->field_farm_csa_prorate_amount[LANGUAGE_NONE][0]['value'];
   $prorate_type = $product->field_farm_csa_prorate_type[LANGUAGE_NONE][0]['value'];
-  $prorate_schedule = $product->field_farm_csa_prorate_schedule[LANGUAGE_NONE][0]['value'];
 
   // If the product doesn't have a valid date range, bail.
   if (empty($product->field_farm_date_range[LANGUAGE_NONE][0]['value']) || empty($product->field_farm_date_range[LANGUAGE_NONE][0]['value2'])) {
@@ -114,32 +108,21 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
   }
 
   // Based on the schedule, determine how many discounts should be applied.
-  // Count how many days/weeks/months have passed since the start date.
-  $day = 60 * 60 * 24;
-  $week = $day * 7;
-  $month = $week * 4;
-  $time_passed = REQUEST_TIME - $start_date;
+  // Use the repeating-date rules to figure out how many iterations have passed.
   $iterations = 0;
-  switch ($prorate_schedule) {
-    case 'daily':
-      $iterations = $time_passed / $day;
-      break;
-    case 'weekly':
-      $iterations = $time_passed / $week;
-      break;
-    case 'monthly':
-      $iterations = $time_passed / $month;
-      break;
-  }
+  foreach ($product->field_farm_csa_prorate_schedule[LANGUAGE_NONE] as $date) {
 
-  // Round the number of iterations down to a whole number.
-  $iterations = floor($iterations);
+    // If the current time is less than the scheduled date, iterate.
+    if (REQUEST_TIME > $date['value']) {
+      $iterations++;
+    }
+  }
 
   // Multiply the amount by the discount number of iterations that have passed.
   $amount = $amount * $iterations;
 
-  // If the resulting price is zero or negative, something must be wrong... bail!
-  if ($unit_price - $amount <= 0) {
+  // If the resulting price is negative, something must be wrong... bail!
+  if ($unit_price - $amount < 0) {
     return;
   }
 
