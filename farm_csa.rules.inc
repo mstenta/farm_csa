@@ -93,11 +93,19 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
     return;
   }
 
+  // Get the unit price of the line item.
+  $unit_price = $line_item->commerce_unit_price[LANGUAGE_NONE][0]['amount'];
+
+  // If the unit price is already zero, bail.
+  if (empty($unit_price)) {
+    return;
+  }
+
   // If the prorating type is 'percent', calculate the value as a percentage
   // of the original line item unit price.
   $amount = 0;
   if ($prorate_type == 'percent') {
-    $amount = ($prorate_amount / 100) * $line_item->commerce_unit_price[LANGUAGE_NONE][0]['amount'];
+    $amount = ($prorate_amount / 100) * $unit_price;
   }
 
   // Or, if the prorating type is 'fixed', convert the value to an integer for Commerce.
@@ -129,6 +137,11 @@ function farm_csa_rules_action_prorate($line_item, $round_mode) {
 
   // Multiply the amount by the discount number of iterations that have passed.
   $amount = $amount * $iterations;
+
+  // If the resulting price is negative, something must be wrong... bail!
+  if ($unit_price - $amount < 0) {
+    return;
+  }
 
   // This will be acting on the 'discount' price component.
   $component_name = 'discount';
