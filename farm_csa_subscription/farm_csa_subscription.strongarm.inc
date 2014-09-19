@@ -116,7 +116,7 @@ function farm_csa_subscription_strongarm() {
             'visible' => TRUE,
           ),
           'default' => array(
-            'weight' => '9',
+            'weight' => '11',
             'visible' => TRUE,
           ),
         ),

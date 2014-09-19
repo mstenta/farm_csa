@@ -80,7 +80,7 @@ function farm_csa_subscription_field_default_fields() {
             'show_labels' => 1,
           ),
           'type' => 'commerce_price_savings_formatter_formatter',
-          'weight' => '5',
+          'weight' => '4',
         ),
         'diff_standard' => array(
           'label' => 'hidden',
@@ -211,7 +211,7 @@ function farm_csa_subscription_field_default_fields() {
       'description' => NULL,
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
@@ -220,7 +220,7 @@ function farm_csa_subscription_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_integer',
-          'weight' => '6',
+          'weight' => '9',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -294,11 +294,11 @@ function farm_csa_subscription_field_default_fields() {
       'description' => NULL,
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => '7',
+          'weight' => '10',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -373,11 +373,11 @@ function farm_csa_subscription_field_default_fields() {
       'description' => 'CSA subscription prices can be prorated on a regular basis during their season (the date range defined for each "CSA Subscription" product). Discounts can be a fixed amount or a percentage, and can be applied daily, weekly, or monthly during the effective dates of the subscription.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 8,
+          'weight' => '5',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -440,7 +440,7 @@ function farm_csa_subscription_field_default_fields() {
       'description' => 'This is the amount of the discount (fixed or percentage) that will be applied each day/week/month during the product\'s date range.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'number',
           'settings' => array(
             'decimal_separator' => '.',
@@ -449,7 +449,7 @@ function farm_csa_subscription_field_default_fields() {
             'thousand_separator' => ' ',
           ),
           'type' => 'number_decimal',
-          'weight' => 10,
+          'weight' => '7',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -528,11 +528,11 @@ function farm_csa_subscription_field_default_fields() {
       'description' => 'At what interval should discounts be applied?',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 11,
+          'weight' => '6',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -606,11 +606,11 @@ function farm_csa_subscription_field_default_fields() {
       'description' => 'Should the discount amount be treated as a fixed amount or a percentage of the product\'s original price?',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'inline',
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 9,
+          'weight' => '8',
         ),
         'line_item' => array(
           'label' => 'above',
@@ -690,7 +690,7 @@ function farm_csa_subscription_field_default_fields() {
             'show_repeat_rule' => 'show',
           ),
           'type' => 'date_default',
-          'weight' => '4',
+          'weight' => '3',
         ),
         'line_item' => array(
           'label' => 'above',
