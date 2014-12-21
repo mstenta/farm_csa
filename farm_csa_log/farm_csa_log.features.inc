@@ -31,6 +31,7 @@ function farm_csa_log_default_log_type() {
     "label" : "CSA Member: Cancel",
     "weight" : 0,
     "name_pattern" : "Cancel subscription: [log:field-farm-csa-subscription]",
+    "name_edit" : "0",
     "rdf_mapping" : []
   }');
   $items['farm_csa_member_pause'] = entity_import('log_type', '{
@@ -38,6 +39,7 @@ function farm_csa_log_default_log_type() {
     "label" : "CSA Member: Pause",
     "weight" : 0,
     "name_pattern" : "Pause subscription: [log:field-farm-csa-subscription]",
+    "name_edit" : "0",
     "rdf_mapping" : []
   }');
   $items['farm_csa_member_subscribe'] = entity_import('log_type', '{
@@ -45,6 +47,7 @@ function farm_csa_log_default_log_type() {
     "label" : "CSA Member: Subscribe",
     "weight" : 0,
     "name_pattern" : "[log:field-farm-person:name] - [log:field-farm-csa-products]",
+    "name_edit" : "0",
     "rdf_mapping" : []
   }');
   return $items;
