@@ -15,7 +15,7 @@ function farm_csa_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'Farm CSA Admin';
   $page->admin_description = 'Administrative interface for the CSA.';
-  $page->path = 'admin/farm/csa/overview';
+  $page->path = 'farm/csa/overview';
   $page->access = array(
     'plugins' => array(
       0 => array(

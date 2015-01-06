@@ -229,14 +229,14 @@ function farm_csa_log_views_default_views() {
 
 <ol>
   <li><a href="/admin/people/create">Create a new user account</a> so that the customer can log into the website to see their order.</li>
-  <li><a href="/admin/commerce/orders/add">Create a new order</a> assigned to that user account, and add one of your <a href="/admin/farm/csa/products">CSA Subscription products</a> to the order.</li>
+  <li><a href="/admin/commerce/orders/add">Create a new order</a> assigned to that user account, and add one of your <a href="/farm/csa/products">CSA Subscription products</a> to the order.</li>
   <li>Record a payment on the order, and a subscription will automatically appear in this list.</li>
 </ol>
 
 <p>You can delete subscriptions and/or regenerate them on an order-by-order basis. Click on an order # below to view that order, and then click on the "Subscriptions" tab in the top right.</p>
 
 <p>You may narrow down the list of subscriptions using the fields below. Click "Apply" to apply the filter.</p>';
-  $handler->display->display_options['path'] = 'admin/farm/csa/subscriptions';
+  $handler->display->display_options['path'] = 'farm/csa/subscriptions';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Subscriptions';
   $handler->display->display_options['menu']['weight'] = '0';
@@ -364,7 +364,7 @@ function farm_csa_log_views_default_views() {
   $handler->display->display_options['header']['area_text_custom']['empty'] = TRUE;
   $handler->display->display_options['header']['area_text_custom']['content'] = '<p>Subscriptions are automatically created when a first payment is made to any order that contains subscription products.</p>
 
-<p>For instructions on manually setting up a new subscription order, see the full <a href="/admin/farm/csa/subscriptions">CSA Subscriptions</a> list.</p>
+<p>For instructions on manually setting up a new subscription order, see the full <a href="/farm/csa/subscriptions">CSA Subscriptions</a> list.</p>
 
 <p>You can view, delete, and generate subscriptions for this specific order below.</p>';
   $handler->display->display_options['defaults']['fields'] = FALSE;
