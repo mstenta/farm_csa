@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * farm_csa_subscription.field_group.inc
+ * farm_csa.field_group.inc
  */
 
 /**
  * Implements hook_field_group_info().
  */
-function farm_csa_subscription_field_group_info() {
+function farm_csa_field_group_info() {
   $export = array();
 
   $field_group = new stdClass();

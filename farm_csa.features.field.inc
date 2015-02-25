@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * farm_csa_subscription.features.field.inc
+ * farm_csa.features.field.inc
  */
 
 /**
  * Implements hook_field_default_fields().
  */
-function farm_csa_subscription_field_default_fields() {
+function farm_csa_field_default_fields() {
   $fields = array();
 
   // Exported field: 'commerce_product-farm_csa_subscription-commerce_price'.

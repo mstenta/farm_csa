@@ -16,14 +16,20 @@ DEPENDENCIES
 
 This module depends on the following modules:
 
- * Ctools (http://drupal.org/project/ctools)
+ * Autocomplete Deluxe (http://drupal.org/project/autocomplete_deluxe)
  * Commerce (http://drupal.org/project/commerce)
+ * Commerce Features (http://drupal.org/project/commerce_features)
+ * Commerce Price Savings Formatter (http://drupal.org/project/commerce_price_savings_formatter)
+ * Ctools (http://drupal.org/project/ctools)
+ * Date (http://drupal.org/project/date)
  * Features (http://drupal.org/project/features)
+ * Field Group (http://drupal.org/project/field_group)
  * Panels (http://drupal.org/project/panels)
  * Role Export (http://drupal.org/project/role_export)
  * Rules (http://drupal.org/project/rules)
- * Rules array create (http://drupal.org/project/rules_array_create)
+ * Views (http://drupal.org/project/views)
  * Farm Admin (http://drupal.org/project/farm_admin)
+ * Farm Taxonomy (http://drupal.org/project/farm_taxonomy)
 
 INSTALLATION
 ------------

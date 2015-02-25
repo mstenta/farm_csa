@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * farm_csa_subscription.views_default.inc
+ * farm_csa.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function farm_csa_subscription_views_default_views() {
+function farm_csa_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -226,15 +226,7 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Title';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    30037204 => 0,
-    200153887 => 0,
-    125843996 => 0,
-    173712484 => 0,
-    196317508 => 0,
-  );
+  $handler->display->display_options['filters']['title']['expose']['remember_roles'] = array();
   /* Filter criterion: Commerce Product: SKU */
   $handler->display->display_options['filters']['sku']['id'] = 'sku';
   $handler->display->display_options['filters']['sku']['table'] = 'commerce_product';
@@ -246,15 +238,7 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['filters']['sku']['expose']['label'] = 'SKU';
   $handler->display->display_options['filters']['sku']['expose']['operator'] = 'sku_op';
   $handler->display->display_options['filters']['sku']['expose']['identifier'] = 'sku';
-  $handler->display->display_options['filters']['sku']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    30037204 => 0,
-    200153887 => 0,
-    125843996 => 0,
-    173712484 => 0,
-    196317508 => 0,
-  );
+  $handler->display->display_options['filters']['sku']['expose']['remember_roles'] = array();
   /* Filter criterion: Field: Season (field_farm_season) */
   $handler->display->display_options['filters']['field_farm_season_tid']['id'] = 'field_farm_season_tid';
   $handler->display->display_options['filters']['field_farm_season_tid']['table'] = 'field_data_field_farm_season';
@@ -265,15 +249,7 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['filters']['field_farm_season_tid']['expose']['label'] = 'Season';
   $handler->display->display_options['filters']['field_farm_season_tid']['expose']['operator'] = 'field_farm_season_tid_op';
   $handler->display->display_options['filters']['field_farm_season_tid']['expose']['identifier'] = 'field_farm_season_tid';
-  $handler->display->display_options['filters']['field_farm_season_tid']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-    30037204 => 0,
-    200153887 => 0,
-    125843996 => 0,
-    173712484 => 0,
-    196317508 => 0,
-  );
+  $handler->display->display_options['filters']['field_farm_season_tid']['expose']['remember_roles'] = array();
   $handler->display->display_options['filters']['field_farm_season_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_farm_season_tid']['vocabulary'] = 'farm_season';
   $handler->display->display_options['filters']['field_farm_season_tid']['hierarchy'] = 1;
@@ -288,10 +264,7 @@ function farm_csa_subscription_views_default_views() {
   $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
   $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
   $handler->display->display_options['filters']['status']['expose']['required'] = TRUE;
-  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
-    2 => '2',
-    1 => 0,
-  );
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array();
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
