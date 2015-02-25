@@ -6,12 +6,7 @@ Provides features for managing a farm CSA (Community Supported Agriculture).
 This module integrates with the [Commerce](http://drupal.org/project/commerce)
 and [Rules](http://drupal.org/project/rules) modules to provide the ability for
 customers to purchase farm shares. A new "CSA Subscription" product type is
-added, with a start and end date, as well as a "Subscription"
-[Log](http://drupal.org/project/log) type. Customers can purchase subscription
-shares like they would a normal product.
-
-It also provides default [Views](http://drupal.org/project/views) of shares that
-have been purchased.
+provided.
 
 This module is part of the [FarmOS](http://drupal.org/project/farm)
 distribution.

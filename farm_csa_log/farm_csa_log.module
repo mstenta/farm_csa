@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Farm CSA Log feature.
- */
-
-include_once 'farm_csa_log.features.inc';

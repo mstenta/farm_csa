@@ -7,47 +7,6 @@
 include_once 'farm_csa.features.inc';
 
 /**
- * Implements hook_views_bulk_operations_form_alter().
- */
-function farm_csa_views_bulk_operations_form_alter(&$form, &$form_state, $vbo) {
-
-  // Add a button for generating subscriptions.
-  if ($form['#form_id'] == 'views_form_farm_csa_subscriptions_page_1' && $form_state['submitted'] != TRUE) {
-    $form['select']['farm_csa_generate_subscriptions'] = array(
-      '#type' => 'submit',
-      '#value' => t('Generate Subscription(s)'),
-      '#submit' => array('farm_csa_generate_subscriptions_submit'),
-      '#weight' => -100,
-    );
-  }
-}
-
-/**
- * Submit function for generating CSA subscriptions.
- */
-function farm_csa_generate_subscriptions_submit($form, &$form_state) {
-
-  // Extract the order ID from the View arguments.
-  if (!empty($form_state['build_info']['args'][0]->args[0])) {
-
-    // Load the order.
-    $order = commerce_order_load($form_state['build_info']['args'][0]->args[0]);
-
-    // Iterate through the order's line items.
-    if (!empty($order->commerce_line_items[LANGUAGE_NONE])) {
-      foreach ($order->commerce_line_items[LANGUAGE_NONE] as $line_item) {
-
-        // Load the line item.
-        $line_item = commerce_line_item_load($line_item['line_item_id']);
-
-        // Invoke the Rules component for generating subscriptions from a line item.
-        $result = rules_invoke_component('rules_farm_csa_subscribe_from_line_item', $line_item);
-      }
-    }
-  }
-}
-
-/**
  * Implements hook_form_alter().
  */
 function farm_csa_form_alter(&$form, &$form_state, $form_id) {
