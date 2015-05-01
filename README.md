@@ -8,7 +8,7 @@ and [Rules](http://drupal.org/project/rules) modules to provide the ability for
 customers to purchase farm shares. A new "CSA Subscription" product type is
 provided.
 
-This module is part of the [FarmOS](http://drupal.org/project/farm)
+This module is part of the [farmOS](http://drupal.org/project/farm)
 distribution.
 
 DEPENDENCIES
